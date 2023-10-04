@@ -2,15 +2,15 @@
 __Stellar Society__ is a social media website made for gamers, nerds and anyone in between. __Stellar Society__ is a place to find new friends or reconnect with old friends. Dive into a universe where your passions are _celebrated!_
 
 ## Table Of Contents 📔
-- [Introduction](#introduction)
-- [Features](#features-)
-- [User Story](#user-story-)
- -[Users](#users-)
- -[Friends](#friends-)
-  [Posts](#posts-)
-  [Comments](#comments-)
-  [Likes](#likes-)
-- [Database Schema](#database-schema)
+- 🌑 [Introduction](#introduction)
+- 🌒 [Features](#features-)
+- 🌓 [User Story](#user-story-)
+  - 🌔 [Users](#users-)
+  - 🌕 [Friends](#friends-)
+  - 🌖 [Posts](#posts-)
+  - 🌗 [Comments](#comments-)
+  - 🌑 [Likes](#likes-%EF%B8%8F)
+- 🌒 [Database Schema](#database-schema)
 
 ## Introduction👾 
 Greetings Earthlings! Stellar Society is made with the gaming and nerd community in mind. Our mission is to provide a space where you can:
