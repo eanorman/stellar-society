@@ -13,3 +13,57 @@ Greetings Earthlings! Stellar Society is made with the gaming and nerd community
  - :star2: Comment on other posts and make new friends
  - :star2: Like posts you find throughout the galaxy 
  - :star2: Add your friends or create new ones
+
+## User Story 📖
+### Users 🧑‍🚀
+ _Sign Up_
+ - As a new user, I should be able to sign up for a new account with valid information.
+ 
+ _Log In_
+ - As an existing user, I should be able to log in using the information provided during sign up.
+ 
+ _Delete Account_
+ - As an existing user, I should be able to completely delete my account, photos, posts, comments and likes.
+
+### Friends 🌌
+_Add Friend_
+- As a logged in user, I should be able to add friends.
+
+_Delete Friend_
+- As a logged in user, I should be able to delete friends from my friend list.
+
+### Posts 📢
+ _Create Posts_
+ - As a logged in user, I should be able to create a new post with text and/or a photo. I should be able to indicate if this is a public post, friends only, or only me post.
+ 
+ _View Posts_
+ - As a logged in user, I should be able to view posts that are mine, public, or my friends.
+ 
+ _Edit Posts_
+ - As a logged in user, I should be able to edit my posts.
+ 
+ _Delete Posts_
+ -As a logged in user, I should be able to delete my posts.
+
+### Comments 📝
+__Create Comments__
+- As a logged in user, I should be able to comment on posts that I can view.
+
+__View Comments__
+- As a logged in user, I should be able to view the comment section on any post I'm able to view.
+
+__Edit Comments__
+- As a logged in user, I should be able to edit my comments on posts I've commented on.
+
+__Delete Comments_
+- As a logged in user, I should be able to delete my comments on any posts I've commented on.
+
+### Likes ❤️
+_Like Posts_
+- As a logged in user, I should be able to like posts I'm able to view
+
+_Unlike Posts_
+- As a logged in user, I should be able to unlike posts I've previously liked.
+
+_View Likes_
+- As a logged in user, I should be able to view who liked the post I'm able to view.
