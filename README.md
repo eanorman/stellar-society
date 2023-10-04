@@ -57,16 +57,16 @@ _Delete Friend_
  -As a logged in user, I should be able to delete my posts.
 
 ### Comments 📝
-__Create Comments__
+_Create Comments_
 - As a logged in user, I should be able to comment on posts that I can view.
 
-__View Comments__
+_View Comments_
 - As a logged in user, I should be able to view the comment section on any post I'm able to view.
 
-__Edit Comments__
+_Edit Comments_
 - As a logged in user, I should be able to edit my comments on posts I've commented on.
 
-__Delete Comments_
+_Delete Comments_
 - As a logged in user, I should be able to delete my comments on any posts I've commented on.
 
 ### Likes ❤️
