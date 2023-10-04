@@ -5,3 +5,42 @@
 .hidden {
   display: none;
 }
+
+.logo img {
+  width: 25%;
+}
+
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #010C80;
+
+}
+
+.profile {
+  border: none;
+  width: 10%;
+  height: 100%;
+}
+
+.login-menu button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  color: white;
+  background-color: #010C80;
+}
+
+.icon {
+  font-size: 25px;
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Lekton', sans-serif;
+}
