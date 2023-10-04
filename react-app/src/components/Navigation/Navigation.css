@@ -8,6 +8,7 @@
 
 .logo img {
   width: 25%;
+  align-self: center;
 }
 
 .nav-list {
@@ -25,12 +26,35 @@
   height: 100%;
 }
 
+
+.login-menu * {
+  align-items: flex-start;
+  font-size: 20px;
+}
+
+.login-menu li {
+  margin: 15%;
+}
+
+
 .login-menu button {
   width: 100%;
   height: 100%;
   border: none;
   color: white;
   background-color: #010C80;
+}
+
+.profile-dropdown button:hover {
+  background-color: white;
+  color: #010C80;
+}
+
+.profile-dropdown {
+  background-color: #010C80;
+  color: white;
+  width: 15%;
+  margin-left: -5%;
 }
 
 .icon {
@@ -43,4 +67,5 @@
   padding: 0;
   margin: 0;
   font-family: 'Lekton', sans-serif;
+  overflow: hidden;
 }

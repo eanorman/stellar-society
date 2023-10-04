@@ -1,0 +1,33 @@
+.landing-container {
+    background-image: url("../../images/galaxy-background.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 91vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    align-content: space-around;
+}
+
+.landing-container h1 {
+    flex-grow: 2;
+    margin-top: 15%;
+}
+
+.landing-container button {
+    height: 10%;
+    width: 10%;
+   margin-bottom: 10%;
+   background-color: transparent;
+   color: white;
+   border: 3px solid white;
+   font-size: 20px;
+   border-radius: 5px;
+}
+
+.landing-container button:hover {
+    background-color: white;
+    color: #010C80;
+}
