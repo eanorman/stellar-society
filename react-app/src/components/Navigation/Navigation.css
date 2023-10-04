@@ -28,7 +28,6 @@
 
 
 .login-menu * {
-  align-items: flex-start;
   font-size: 20px;
 }
 
@@ -53,8 +52,7 @@
 .profile-dropdown {
   background-color: #010C80;
   color: white;
-  width: 15%;
-  margin-left: -5%;
+  margin-left: -50%;
 }
 
 .icon {
