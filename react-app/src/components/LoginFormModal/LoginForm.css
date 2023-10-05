@@ -6,12 +6,14 @@
   align-items: center;
   text-align: left;
   width: auto;
+  max-height: 35vh;
   padding-left: 35px;
 }
 
 .login-child {
   width: 100%;
-  margin: 15px;
+  height: 100%;
+  margin: 0 15px;
 }
 
 .login-modal {
