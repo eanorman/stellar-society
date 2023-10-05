@@ -46,123 +46,124 @@ function SignupFormModal() {
 			<h1>Sign Up</h1>
 			<form onSubmit={handleSubmit} className="sign-up-container">
 				<div className="sign-up-child">
-				<ul>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul>
+					<ul>
+						{errors.map((error, idx) => (
+							<li key={idx}>{error}</li>
+						))}
+					</ul>
 				</div>
 				<div className="sign-up-child">
-				<label>
-					Email
-					<input
-						type="text"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-						required
-					/>
-				</label>
+					<label>
+						Email
+						<input
+							type="text"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+							required
+						/>
+					</label>
 				</div>
 				<div className="sign-up-child">
-				<label>
-					Username
-					<input
-						type="text"
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
-						required
-					/>
-				</label>
+					<label>
+						Username
+						<input
+							type="text"
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
+							required
+						/>
+					</label>
 				</div>
 				<div className="sign-up-child">
-				<label>
-					Password
-					<input
-						type="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						required
-					/>
-				</label>
+				<div className="password-container">
+						<label>
+							Password
+							<input
+								type="password"
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+								required
+							/>
+						</label>
+						<label>
+							Confirm Password
+							<input
+								type="password"
+								value={confirmPassword}
+								onChange={(e) => setConfirmPassword(e.target.value)}
+								required
+							/>
+						</label>
+					</div>
 				</div>
 				<div className="sign-up-child">
-				<label>
-					Confirm Password
-					<input
-						type="password"
-						value={confirmPassword}
-						onChange={(e) => setConfirmPassword(e.target.value)}
-						required
-					/>
-				</label>
+					<div className="name-container">
+						<label>
+							First Name
+							<input
+								type="text"
+								value={firstName}
+								onChange={(e) => setFirstName(e.target.value)}
+								required
+							/>
+						</label>
+						<label>
+							Last Name
+							<input
+								type="text"
+								value={lastName}
+								onChange={(e) => setLastName(e.target.value)}
+								required
+							/>
+						</label>
+					</div>
 				</div>
 				<div className="sign-up-child">
-				<label>
-					First Name
-					<input
-						type="text"
-						value={firstName}
-						onChange={(e) => setFirstName(e.target.value)}
-						required
-					/>
-				</label>
+					<div className="location-container">
+						<label>
+							City
+							<input
+								type="text"
+								value={city}
+								onChange={(e) => setCity(e.target.value)}
+								required
+							/>
+						</label>
+
+						<label>
+							State
+							<input
+								type="text"
+								value={state}
+								onChange={(e) => setState(e.target.value)}
+								required
+							/>
+						</label>
+					</div>
 				</div>
 				<div className="sign-up-child">
-				<label>
-					Last Name
-					<input
-						type="text"
-						value={lastName}
-						onChange={(e) => setLastName(e.target.value)}
-						required
-					/>
-				</label>
+					<label>
+						Country
+						<input
+							type="text"
+							value={country}
+							onChange={(e) => setCountry(e.target.value)}
+							required
+						/>
+					</label>
 				</div>
 				<div className="sign-up-child">
-				<label>
-					City
-					<input
-						type="text"
-						value={city}
-						onChange={(e) => setCity(e.target.value)}
-						required
-					/>
-				</label>
+					<label>
+						Bio
+						<textarea
+							value={bio}
+							onChange={(e) => setBio(e.target.value)}
+							required
+						/>
+					</label>
 				</div>
 				<div className="sign-up-child">
-				<label>
-					State
-					<input
-						type="text"
-						value={state}
-						onChange={(e) => setState(e.target.value)}
-						required
-					/>
-				</label>
-				</div>
-				<div className="sign-up-child">
-				<label>
-					Country
-					<input
-						type="text"
-						value={country}
-						onChange={(e) => setCountry(e.target.value)}
-						required
-					/>
-				</label>
-				</div>
-				<div className="sign-up-child">
-				<label>
-					Bio
-					<textarea
-						value={bio}
-						onChange={(e) => setBio(e.target.value)}
-						required
-					/>
-				</label>
-				</div>
-				<div className="sign-up-child">
-				<button type="submit">Sign Up</button>
+					<button type="submit">Sign Up</button>
 				</div>
 			</form>
 		</div>

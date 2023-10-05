@@ -9,9 +9,11 @@
 }
 
 .sign-up-modal {
-
+  height: 95vh;
   align-items: center;
   text-align: center;
+  overflow: hidden;
+
 }
 
 .sign-up-child {
@@ -26,7 +28,7 @@ label,
 textarea,
 button {
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   width: 95%;
   margin: 0;
 }
@@ -70,4 +72,18 @@ button {
     background-color: white;
     color: #010C80;
     border: 3px solid #010C80;
+}
+
+.password-container,
+.name-container,
+.location-container {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.password-container label,
+.name-container label,
+.location-container  label {
+  width: 46.5%; 
 }
