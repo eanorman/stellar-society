@@ -3,6 +3,7 @@ import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import "./LoginForm.css";
+import galaxy from '../../images/galaxy-background.jpg'
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -22,14 +23,20 @@ function LoginFormModal() {
   };
 
   return (
-    <>
+    <div className="login-modal">
+      	<div className="galaxy">
+				<img src={galaxy} alt='galaxy' />
+			</div>
       <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="login-container">
+      <div className="login-child">
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
+        </div>
+        <div className="login-child">
         <label>
           Email
           <input
@@ -39,6 +46,8 @@ function LoginFormModal() {
             required
           />
         </label>
+        </div>
+        <div className="login-child">
         <label>
           Password
           <input
@@ -48,9 +57,12 @@ function LoginFormModal() {
             required
           />
         </label>
+        </div>
+        <div className="login-child">
         <button type="submit">Log In</button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

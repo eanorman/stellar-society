@@ -1,0 +1,74 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  align-items: center;
+  text-align: left;
+  width: auto;
+  padding-left: 35px;
+}
+
+.login-child {
+  width: 100%;
+  margin: 15px;
+}
+
+.login-modal {
+  align-items: center;
+  text-align: center;
+  height: 45vh;
+  width: 60vh;
+}
+
+.login-child input,
+label,
+textarea,
+button {
+  display: block;
+  font-size: 18px;
+  width: 90%;
+  margin-left: 15px;
+}
+
+.login-child label {
+  font-weight: bold;
+}
+
+.galaxy {
+  width: 25%;
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.galaxy img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.login-child button {
+  background-image: url("../../images/galaxy-background.jpg");
+  object-fit: fill;
+  color: white;
+  width: 75%;
+  border: 2px solid white;
+  border-radius: 5px;
+  height: 70px;
+  margin: auto;
+  margin-top: 50px;
+  font-weight: bolder;
+}
+
+.login-child button:hover {
+  background: none;
+  background-color: white;
+  color: #010c80;
+  border: 3px solid #010c80;
+}

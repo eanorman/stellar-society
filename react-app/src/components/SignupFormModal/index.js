@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
 import "./SignupForm.css";
+import galaxy from '../../images/galaxy-background.jpg'
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
@@ -36,14 +37,22 @@ function SignupFormModal() {
 	};
 
 	return (
-		<>
+
+		<div className="sign-up-modal">
+			<div className="galaxy">
+				<img src={galaxy} alt='galaxy' />
+			</div>
+
 			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="sign-up-container">
+				<div className="sign-up-child">
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
+				</div>
+				<div className="sign-up-child">
 				<label>
 					Email
 					<input
@@ -53,6 +62,8 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				</div>
+				<div className="sign-up-child">
 				<label>
 					Username
 					<input
@@ -62,6 +73,8 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				</div>
+				<div className="sign-up-child">
 				<label>
 					Password
 					<input
@@ -71,6 +84,8 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				</div>
+				<div className="sign-up-child">
 				<label>
 					Confirm Password
 					<input
@@ -80,6 +95,8 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				</div>
+				<div className="sign-up-child">
 				<label>
 					First Name
 					<input
@@ -89,6 +106,8 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				</div>
+				<div className="sign-up-child">
 				<label>
 					Last Name
 					<input
@@ -98,6 +117,8 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				</div>
+				<div className="sign-up-child">
 				<label>
 					City
 					<input
@@ -107,6 +128,8 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				</div>
+				<div className="sign-up-child">
 				<label>
 					State
 					<input
@@ -116,6 +139,8 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				</div>
+				<div className="sign-up-child">
 				<label>
 					Country
 					<input
@@ -125,6 +150,8 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				</div>
+				<div className="sign-up-child">
 				<label>
 					Bio
 					<textarea
@@ -133,9 +160,12 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				</div>
+				<div className="sign-up-child">
 				<button type="submit">Sign Up</button>
+				</div>
 			</form>
-		</>
+		</div>
 	);
 }
 

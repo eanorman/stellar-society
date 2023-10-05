@@ -1,5 +1,19 @@
 .profile-dropdown {
   position: absolute;
+  background-color: #010C80;
+  color: white;
+  width: 15%;
+  right: 2%;
+}
+
+.profile-dropdown button {
+  margin: 0;
+  padding: 0;
+}
+
+.profile-dropdown ul {
+  border-radius: 10px;
+  width: auto;
 }
 
 .hidden {
@@ -12,12 +26,10 @@
 }
 
 .nav-list {
-  list-style-type: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #010C80;
-
 }
 
 .profile {
@@ -29,10 +41,12 @@
 
 .login-menu * {
   font-size: 20px;
+  border-radius: 5px;
 }
 
 .login-menu li {
-  margin: 15%;
+  margin: 5%;
+  list-style-type: none;
 }
 
 
@@ -49,12 +63,6 @@
   color: #010C80;
 }
 
-.profile-dropdown {
-  background-color: #010C80;
-  color: white;
-  margin-left: -50%;
-}
-
 .icon {
   font-size: 25px;
 }
@@ -65,5 +73,5 @@
   padding: 0;
   margin: 0;
   font-family: 'Lekton', sans-serif;
-  overflow: hidden;
+  list-style-type: none;
 }
