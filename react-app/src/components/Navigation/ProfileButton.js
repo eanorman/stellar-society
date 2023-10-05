@@ -4,6 +4,10 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+
+
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -38,9 +42,9 @@ function ProfileButton({ user }) {
   const closeMenu = () => setShowMenu(false);
 
   return (
-    <>
+    <div className="login-menu">
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <FontAwesomeIcon icon={faUser} className="icon"/>
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
@@ -67,7 +71,7 @@ function ProfileButton({ user }) {
           </>
         )}
       </ul>
-    </>
+    </div>
   );
 }
 

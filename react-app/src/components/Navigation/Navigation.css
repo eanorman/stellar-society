@@ -1,7 +1,77 @@
 .profile-dropdown {
   position: absolute;
+  background-color: #010C80;
+  color: white;
+  width: 15%;
+  right: 2%;
+}
+
+.profile-dropdown button {
+  margin: 0;
+  padding: 0;
+}
+
+.profile-dropdown ul {
+  border-radius: 10px;
+  width: auto;
 }
 
 .hidden {
   display: none;
+}
+
+.logo img {
+  width: 25%;
+  align-self: center;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #010C80;
+}
+
+.profile {
+  border: none;
+  width: 10%;
+  height: 100%;
+}
+
+
+.login-menu * {
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.login-menu li {
+  margin: 5%;
+  list-style-type: none;
+}
+
+
+.login-menu button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  color: white;
+  background-color: #010C80;
+}
+
+.profile-dropdown button:hover {
+  background-color: white;
+  color: #010C80;
+}
+
+.icon {
+  font-size: 25px;
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Lekton', sans-serif;
+  list-style-type: none;
 }
