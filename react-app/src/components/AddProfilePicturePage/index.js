@@ -12,7 +12,6 @@ function AddProfilePicture() {
   const sessionUser = useSelector((state) => state.session.user);
   const [image, setImage] = useState("");
 
-  console.log(sessionUser);
   if (!sessionUser) history.push("/");
 
   const handleClick = () => {
@@ -36,30 +35,33 @@ function AddProfilePicture() {
         ctx.drawImage(
           img,
           (maxSize - img.width) / 2,
-          (maxSize - img.height) /2
+          (maxSize - img.height) / 2
         );
         canvas.toBlob(
-          (blob => {
+          (blob) => {
             const file = new File([blob], imgname, {
-              type:image/ProcessingInstruction,
-              lastModified: Date.now()
+              type: image / ProcessingInstruction,
+              lastModified: Date.now(),
             });
-            console.log(file);
             setImage(file);
-          }),
+          },
           "image/jpeg",
           0.8
-        )
-      }
-    }
+        );
+      };
+    };
+  };
+
+  const handleSkip = () => {
+    history.push("/");
   };
 
   const handleUpload = async () => {
-    const data = await dispatch(addProfilePicture(sessionUser.id, image))
-    if(data){
-      history.push('/')
+    const data = await dispatch(addProfilePicture(sessionUser.id, image));
+    if (data) {
+      history.push("/");
     }
-  }
+  };
 
   return (
     <div className="picture-page-container">
@@ -67,13 +69,28 @@ function AddProfilePicture() {
         <h1>Upload A Profile Photo</h1>
         <div onClick={handleClick} className="user-picture-input">
           {image ? (
-            <img src={URL.createObjectURL(image)} alt=" " className="profile-picture-image" />
+            <img
+              src={URL.createObjectURL(image)}
+              alt=" "
+              className="profile-picture-image"
+            />
           ) : (
-            <img src={default_picture} alt=" " className="profile-picture-image" />
+            <img
+              src={default_picture}
+              alt=" "
+              className="profile-picture-image"
+            />
           )}
           <input type="file" ref={inputRef} onChange={handleImageChange} />
         </div>
-        <button className="image-upload-button" onClick={handleUpload}>Upload</button>
+        <div className="input-buttons">
+          <button className="image-upload-button" onClick={handleUpload}>
+            Upload
+          </button>
+          <button className="image-skip-button" onClick={handleSkip}>
+            Skip
+          </button>
+        </div>
       </div>
     </div>
   );

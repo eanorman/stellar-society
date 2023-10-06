@@ -12,7 +12,7 @@
     background-color: white;
     border-radius: 15px;
     width: 50%;
-    height: 50%;
+    height: max-content;
 }
 
 .profile-picture-image {
@@ -22,4 +22,40 @@
 
 .user-picture-input input {
     display: none;
+}
+
+.input-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 3% 0;
+}
+
+.image-upload-button{
+    width: 70%;
+    background-image: url("../../images/galaxy-background.jpg");
+  object-fit: fill;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+.image-upload-button:hover {
+    background: none;
+    background-color: white;
+    color: #010c80;
+    border: 3px solid #010c80;
+  }
+
+.image-skip-button {
+    width: 15%;
+    background-color: white;
+    color: #010c80;
+    border: 2px solid #010c80;
+    border-radius: 5px;
+}
+.image-skip-button:hover {
+    background-color: red;
+    color: white;
+    border: 3px solid white;
 }
