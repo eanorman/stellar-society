@@ -33,6 +33,7 @@ def upgrade():
     sa.Column('state', sa.String(length=40), nullable=False),
     sa.Column('country', sa.String(length=40), nullable=False),
     sa.Column('bio', sa.String(length=255)),
+    sa.Column('profile_photo', sa.String(length=255)),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')

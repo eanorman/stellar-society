@@ -31,3 +31,4 @@ class SignUpForm(FlaskForm):
     state = StringField('state', validators=[DataRequired()])
     country = StringField('country', validators=[DataRequired()])
     bio = TextAreaField('bio')
+ 

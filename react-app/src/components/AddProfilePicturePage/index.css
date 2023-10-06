@@ -1,0 +1,13 @@
+.picture-page-container {
+    background-image: url("../../images/galaxy-background.jpg");
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    background-color: white;
+    border-radius: 15px;
+}
