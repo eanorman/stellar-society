@@ -5,11 +5,11 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', first_name='Demo', last_name='Hackerman', city="Indianapolis", state='Indiana', country="United States of America", bio='hello world')
+        username='Demo', email='demo@aa.io', password='password', first_name='Demo', last_name='Hackerman', city="Indianapolis", state='Indiana', country="United States of America", bio='hello world', profile_picture="https://stellar-society.s3.us-east-2.amazonaws.com/default-profile-picture.jpg")
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password', first_name='Marnie', last_name='Brother', city="Colorado Springs", state='Colorado', country="United States of America", bio='hey bestiessss')
+        username='marnie', email='marnie@aa.io', password='password', first_name='Marnie', last_name='Brother', city="Colorado Springs", state='Colorado', country="United States of America", bio='hey bestiessss', profile_picture="https://stellar-society.s3.us-east-2.amazonaws.com/default-profile-picture.jpg")
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password', first_name='Robert', last_name='Smith', city="Miami", state='Florida', country="United States of America", bio='sir, this is a wendys')
+        username='bobbie', email='bobbie@aa.io', password='password', first_name='Robert', last_name='Smith', city="Miami", state='Florida', country="United States of America", bio='sir, this is a wendys', profile_picture="https://stellar-society.s3.us-east-2.amazonaws.com/default-profile-picture.jpg")
 
     db.session.add(demo)
     db.session.add(marnie)

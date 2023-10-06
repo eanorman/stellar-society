@@ -19,7 +19,7 @@ class User(db.Model, UserMixin):
     state = db.Column(db.String(40), nullable=False)
     country = db.Column(db.String(40), nullable=False)
     bio = db.Column(db.String(255))
-    profile_photo: db.Column(db.String(255))
+    profile_picture = db.Column(db.String(255))
 
     @property
     def password(self):
@@ -43,5 +43,5 @@ class User(db.Model, UserMixin):
             'state': self.state,
             'country': self.country,
             'bio': self.bio,
-            'profile_photo': self.profile_photo
+            'profile_picture': self.profile_picture
         }

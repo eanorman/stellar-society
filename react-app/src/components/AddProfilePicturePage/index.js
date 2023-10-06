@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "./index.css";
 
+
 function AddProfilePicture() {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
@@ -13,7 +14,8 @@ function AddProfilePicture() {
   return (
     <div className="picture-page-container">
       <div className="main-content">
-        <h1>HEY BESTIE!</h1>
+        <h1>Upload A Profile Photo</h1>
+
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import os
 
 
 user_routes = Blueprint('users', __name__)
-s3 = boto3.client('s3', aws_access_key_id = os.environ.get("AWS_ACCESS_KEY_ID"), aws_secret_access_key = os.environ.get("AWS_SECRET_KEY"))
+s3 = boto3.client('s3', aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"), aws_secret_access_key=os.environ.get("AWS_SECRET_KEY"))
 
 
 @user_routes.route('/')
@@ -29,7 +29,7 @@ def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
-@user_routes.route('/<int:id>/add-profile-photo', method=['POST'])
+@user_routes.route('/<int:id>/add-profile-photo', methods=['POST'])
 @login_required
 def add_profile_picture(id):
     user = User.query.get(id)

@@ -71,7 +71,8 @@ def sign_up():
             city=form.data['city'],
             state=form.data['state'],
             country=form.data['country'],
-            bio=form.data['bio']
+            bio=form.data['bio'],
+            profile_picture="https://stellar-society.s3.us-east-2.amazonaws.com/default-profile-picture.jpg"
         )
         db.session.add(user)
         db.session.commit()

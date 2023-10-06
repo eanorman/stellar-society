@@ -33,7 +33,7 @@ def upgrade():
     sa.Column('state', sa.String(length=40), nullable=False),
     sa.Column('country', sa.String(length=40), nullable=False),
     sa.Column('bio', sa.String(length=255)),
-    sa.Column('profile_photo', sa.String(length=255)),
+    sa.Column('profile_picture', sa.String(length=255)),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
@@ -41,7 +41,7 @@ def upgrade():
 
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-    # ### end Alembic commands ###qqqqqqqqq
+    # ### end Alembic commands ###
 
 
 def downgrade():
