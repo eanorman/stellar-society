@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import AddProfilePicture from "./components/AddProfilePicturePage";
+import MainFeedPage from "./components/MainFeedPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/add-picture">
             <AddProfilePicture />
+          </Route>
+          <Route path='/feed'>
+            <MainFeedPage />
           </Route>
           <Route path="/">
             <LandingPage />

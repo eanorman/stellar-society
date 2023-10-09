@@ -42,7 +42,7 @@ def add_profile_picture(id):
 
     if form.validate_on_submit():
         uploaded_file = form.profile_picture.data
-        unique_filename = f"user_{user.id}_profile_picture.jpg"
+        unique_filename = f"user_{user.user_id}_profile_picture.jpg"
 
         try:
             s3.upload_fileobj(

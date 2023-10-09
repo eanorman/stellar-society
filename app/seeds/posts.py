@@ -1,8 +1,6 @@
 from app.models import db, Post, environment, SCHEMA
 from sqlalchemy.sql import text
 
-
-# Adds a demo user, you can add other users here if you want
 def seed_posts():
     demo = Post(
         user_id=1, content='hello world')
@@ -10,24 +8,49 @@ def seed_posts():
         user_id=2, content='heyyyy bestieeessss')
     bobbie = Post(
        user_id=3, content='yay!')
+    rick = Post(
+        user_id=4, content='Never going to let you down')
+    bob = Post(
+        user_id=5, content='Ah, yes. The "Bob Loblaw Law Blog". You, sir, are a mouthful.')
+    elon = Post(
+        user_id=6, content='who wants to go to Mars?')
+    kitty = Post(
+        user_id=7, content='meeeeoooowwww')
+    chuck = Post(
+        user_id=8, content='I don\'t initiate violence, I retaliate.')
+    hermione = Post(
+        user_id=9, content='Honestly, don\'t you two read?')
+    jack = Post(
+        user_id=10, content='Better not to know which moment may be your last')
+    daenerys = Post(
+        user_id=11, content='I\'m no ordinary woman. My dreams come true.')
+    tony = Post(
+        user_id=12, content='Sometimes you gotta run before you can walk')
+    groot = Post(
+        user_id=13, content='I. Am. Groot.')
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
+    db.session.add(rick)
+    db.session.add(bob)
+    db.session.add(elon)
+    db.session.add(kitty)
+    db.session.add(chuck)
+    db.session.add(hermione)
+    db.session.add(jack)
+    db.session.add(daenerys)
+    db.session.add(tony)
+    db.session.add(groot)
     db.session.commit()
 
 
-# Uses a raw SQL query to TRUNCATE or DELETE the users table. SQLAlchemy doesn't
-# have a built in function to do this. With postgres in production TRUNCATE
-# removes all the data from the table, and RESET IDENTITY resets the auto
-# incrementing primary key, CASCADE deletes any dependent entities.  With
-# sqlite3 in development you need to instead use DELETE to remove all data and
-# it will reset the primary keys for you as well.
+
 def undo_posts():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+            f"TRUNCATE table {SCHEMA}.posts RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM users"))
+        db.session.execute(text("DELETE FROM posts"))
 
     db.session.commit()

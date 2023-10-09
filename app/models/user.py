@@ -45,3 +45,6 @@ class User(db.Model, UserMixin):
             'bio': self.bio,
             'profile_picture': self.profile_picture
         }
+
+    def get_id(self):
+        return str(self.user_id)

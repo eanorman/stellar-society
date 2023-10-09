@@ -2,14 +2,15 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
 
-class Post(db.Model):
-    __tablename__ = 'posts'
+class Comment(db.Model):
+    __tablename__ = 'comments'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
-    post_id = db.Column(db.Integer, primary_key=True)
+    comment_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.post_id'), nullable=False)
     content = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
@@ -17,8 +18,9 @@ class Post(db.Model):
 
     def to_dict(self):
         return {
-            'post_id': self.post_id,
+            'comment_id': self.comment_id,
             'user_id': self.user_id,
+            'post_id': self.id,
             'content': self.content,
             'created_at': self.created_at
         }
