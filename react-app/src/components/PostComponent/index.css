@@ -1,0 +1,19 @@
+.post-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 2%;
+}
+
+.post-info {
+  width: 100%;
+}
+
+.user-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+}

@@ -13,7 +13,7 @@ function NewsFeed() {
     const sessionUser = useSelector((state) => state.session.user);
     const posts = useSelector((state) => state.feed.posts);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [users, setUsers] = useState({});
+
 
     if (!sessionUser) history.push("/");
 
@@ -33,7 +33,7 @@ function NewsFeed() {
                 const user = await response.json();
                 users[post.user_id] = user;
             }
-            setUsers(users);
+
         }
         if (posts) {
             fetchUsers();
