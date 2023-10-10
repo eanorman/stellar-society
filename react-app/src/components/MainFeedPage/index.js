@@ -1,12 +1,15 @@
-import React from 'react'
-import './index.css'
+import React from "react";
+import "./index.css";
+import NewsFeed from "../NewsFeed";
 
 function MainFeedPage() {
-    return (
-        <div>
-            <h1>Main Page</h1>
-        </div>
-    )
+  return (
+    <div className="main-page-container">
+      <div className="news-feed">
+        <NewsFeed />
+      </div>
+    </div>
+  );
 }
 
-export default MainFeedPage
+export default MainFeedPage;

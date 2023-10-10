@@ -6,6 +6,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { removeFeed } from "../../store/feed";
 
 
 
@@ -36,6 +37,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    dispatch(removeFeed())
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
