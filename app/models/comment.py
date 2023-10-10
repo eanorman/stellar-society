@@ -20,7 +20,7 @@ class Comment(db.Model):
         return {
             'comment_id': self.comment_id,
             'user_id': self.user_id,
-            'post_id': self.id,
+            'post_id': self.post_id,
             'content': self.content,
             'created_at': self.created_at
         }

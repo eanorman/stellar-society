@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import Post, db, Friendship
+from app.models import Post, db, Friendship, Comment
 from app.forms import PostForm
 from flask_login import current_user, login_required
 from sqlalchemy import or_, and_
@@ -24,6 +24,13 @@ def get_posts():
 
     return jsonify(feed_posts_dict)
 
+# Get Comments By Post ID
+@post_routes.route('/<int:id>/comments')
+@login_required
+def get_post_comments(id):
+    comments = Comment.query.filter_by(post_id=id).order_by(Comment.created_at.desc()).all()
+    comments_dict = [comment.to_dict() for comment in comments]
+    return jsonify(comments_dict)
 
 # Get Post By ID
 @post_routes.route('/<int:id>')

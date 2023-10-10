@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import './index.css'
+import PostComponent from '../PostComponent';
 
 
 function NewsFeed() {
@@ -43,25 +44,12 @@ function NewsFeed() {
 
     return (
         <div>
-            {
-                isLoaded ? ( posts.map((post) => {
-                    const user = users[post.user_id];
-                    return(
-                        user ? (
-                            <div className='post-content'>
-                                <img key={post.post_id} src={user.profile_picture} alt={`${user.username}`} onClick={() => history.push(`/users/${post.user_id}`)} />
-                                <div className='post-info'>
-                                    <a href={`/users/${user.user_id}`}>{user.username}</a>
-                                    <p>{post.content}</p>
-                                </div>
-                            </div>
-                        ) : null
-                    )
-                })) : (
-                    <div>
-                        <h1>Loading...</h1>
-                    </div>
-                )
+            { isLoaded ? (posts.map((post) => {
+              return <PostComponent post_id={post.post_id} key={post.post_id}/>
+            })) : (
+                <h2>Loading...</h2>
+            )
+
             }
         </div>
     )
