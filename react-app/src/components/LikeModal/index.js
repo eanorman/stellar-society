@@ -27,6 +27,9 @@ function LikeModal({ likes }) {
 
     return (
         <div className="like-modal">
+            <div className="like-header">
+                <h2>Likes</h2>
+            </div>
             {
                 likes.length ? (
                     <div>

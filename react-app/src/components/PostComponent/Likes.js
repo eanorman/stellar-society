@@ -5,6 +5,7 @@ import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from 'react-redux';
 import OpenModalButton from '../OpenModalButton';
 import LikeModal from "../LikeModal";
+import './Likes.css'
 
 
 function Likes({ post_id }) {
@@ -55,17 +56,17 @@ function Likes({ post_id }) {
     }
 
     return (
-        <div>
+        <div className="likes-container">
         {
             isLoaded ? (
-                <div>
+                <div className="likes-content">
                     {
                         userLike ? (
-                            <div>
+                            <div className="star-solid">
                                 <FontAwesomeIcon icon={solidStar} onClick={unLikePost}/>
                             </div>
                         ) : (
-                            <div>
+                            <div className="star">
                                 <FontAwesomeIcon icon={star} onClick={likePost}/>
                             </div>
                         )

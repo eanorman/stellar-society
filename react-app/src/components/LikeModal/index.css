@@ -1,7 +1,15 @@
 .like-modal {
-    width: 30%;
+   max-width: 40vh;
+    margin-bottom: 7%;
 }
 
-#modal-content {
-    width: 30%;
+.liked-by img {
+    width: 20%;
+}
+
+.like-header {
+    background-image: url("../../images/galaxy-background.jpg");
+    background-size: cover;
+    color: white;
+    text-align: center;
 }
