@@ -3,6 +3,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faStar as star } from '@fortawesome/free-regular-svg-icons'
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from 'react-redux';
+import OpenModalButton from '../OpenModalButton';
+import LikeModal from "../LikeModal";
 
 
 function Likes({ post_id }) {
@@ -68,7 +70,9 @@ function Likes({ post_id }) {
                             </div>
                         )
                     }
-                    <p>{likes.length}</p>
+                        <OpenModalButton
+                buttonText={likes.length}
+                modalComponent={<LikeModal likes={likes}/>} />
                 </div>
             ) : (
                 null

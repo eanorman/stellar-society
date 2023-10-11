@@ -19,7 +19,6 @@ function Comments({comment}){
 
       useEffect(() => {
         setProfilePicture(user.profile_picture)
-        console.log(user)
         setIsLoaded(true)
       }, [user])
 
