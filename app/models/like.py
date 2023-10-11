@@ -1,5 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
+from .db import add_prefix_for_prod
 
 
 class Like(db.Model):
@@ -9,8 +10,8 @@ class Like(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     like_id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
-    post_id = db.Column(db.Integer, db.ForeignKey('posts.post_id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.user_id')), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('posts.post_id')), nullable=False)
 
     def __init__(self, user_id, post_id):
         self.user_id = user_id
