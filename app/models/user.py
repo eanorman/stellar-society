@@ -9,7 +9,7 @@ class User(db.Model, UserMixin):
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
-    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
     state = db.Column(db.String(40), nullable=False)
     country = db.Column(db.String(40), nullable=False)
     bio = db.Column(db.String(255))
+    profile_picture = db.Column(db.String(255))
 
     @property
     def password(self):
@@ -33,7 +34,7 @@ class User(db.Model, UserMixin):
 
     def to_dict(self):
         return {
-            'id': self.id,
+            'user_id': self.user_id,
             'username': self.username,
             'email': self.email,
             'first_name': self.first_name,
@@ -41,5 +42,9 @@ class User(db.Model, UserMixin):
             'city': self.city,
             'state': self.state,
             'country': self.country,
-            'bio': self.bio
+            'bio': self.bio,
+            'profile_picture': self.profile_picture
         }
+
+    def get_id(self):
+        return str(self.user_id)

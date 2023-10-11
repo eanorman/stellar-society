@@ -1,0 +1,27 @@
+
+.likes-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 10vh
+}
+
+.likes-content button {
+    width: 25%;
+}
+
+.likes-content button {
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    color: #010C80;
+}
+
+.star-solid,
+.star {
+    cursor: pointer;
+}
+
+.star-solid {
+    color: gold;
+}

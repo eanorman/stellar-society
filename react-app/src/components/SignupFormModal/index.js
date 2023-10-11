@@ -3,10 +3,12 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
 import "./SignupForm.css";
-import galaxy from '../../images/galaxy-background.jpg'
+import galaxy from '../../images/galaxy-background.jpg';
+import { useHistory } from "react-router-dom";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
+	const history = useHistory();
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
@@ -28,12 +30,14 @@ function SignupFormModal() {
 				setErrors(data);
 			} else {
 				closeModal();
+				history.push('/add-picture')
 			}
 		} else {
 			setErrors([
 				"Confirm Password field must be the same as the Password field",
 			]);
 		}
+
 	};
 
 	return (
