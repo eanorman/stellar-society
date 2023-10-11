@@ -15,8 +15,7 @@ function Comments({comment}){
 
       useEffect(() => {
         getUser(user_id)
-
-      }, [])
+      }, [user_id])
 
       useEffect(() => {
         setProfilePicture(user.profile_picture)
@@ -28,7 +27,7 @@ function Comments({comment}){
         <div className="comment-container">
       {isLoaded ? (
         <div className="comment-content">
-            <img src={profilePicture} />
+            <img src={profilePicture} alt={user.username} />
             <a href={`/users/${user.user_id}`}>{user.username}</a>
             <p>{comment.content}</p>
         </div>

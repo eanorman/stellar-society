@@ -71,7 +71,7 @@ function PostComponent({ post_id }) {
             <p className="post">{post.content}</p>
           </div>
           <div>
-            <Likes />
+            <Likes post_id={post_id} />
             {comments
               ? comments.map((comment) => {
                   return (

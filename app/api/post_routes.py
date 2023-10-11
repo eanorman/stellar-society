@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import Post, db, Friendship, Comment
+from app.models import Post, db, Friendship, Comment, Like
 from app.forms import PostForm
 from flask_login import current_user, login_required
 from sqlalchemy import or_, and_
@@ -38,3 +38,36 @@ def get_post_comments(id):
 def get_specific_post(id):
     post = Post.query.get(id)
     return post.to_dict()
+
+
+# Get Likes By Post ID
+@post_routes.route('/<int:id>/likes')
+@login_required
+def get_post_likes(id):
+    likes = Like.query.filter_by(post_id=id).all()
+    likes_dict = [like.to_dict() for like in likes]
+    return jsonify(likes_dict)
+
+
+# Post A Like By Post ID
+@post_routes.route('/<int:id>/likes', methods=["POST"])
+@login_required
+def like_post(id):
+    user_id = current_user.user_id
+    post_id = id
+    like = Like(user_id, post_id)
+    db.session.add(like)
+    db.session.commit()
+    return like.to_dict()
+
+@post_routes.route('/<int:id>/likes', methods=['DELETE'])
+@login_required
+def delete_like(id):
+    user = current_user.user_id
+    like = Like.query.filter_by(user_id=user, post_id=id).first()
+    if like:
+        db.session.delete(like)
+        db.session.commit()
+        return "Successfully deleted"
+    else:
+        return "Like not found", 404
