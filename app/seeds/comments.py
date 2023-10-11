@@ -27,7 +27,7 @@ def seed_comments():
     tony = Comment(
         user_id=12, post_id=13, content="Groot")
     groot = Comment(
-        user_id=13, post_id=14, content="I am Groot.")
+        user_id=13, post_id=1, content="I am Groot.")
 
     db.session.add(demo)
     db.session.add(marnie)
