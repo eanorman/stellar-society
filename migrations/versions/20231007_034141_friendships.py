@@ -21,8 +21,8 @@ depends_on = None
 def upgrade():
    op.create_table('friendships',
     sa.Column('friendship_id', sa.Integer(), nullable=False),
-    sa.Column('user_id', sa.Integer(), sa.ForeignKey('users.user_id'), nullable=False),
-    sa.Column('friend_id', sa.Integer(), sa.ForeignKey('users.user_id'), nullable=False),
+    sa.Column('user_id', sa.Integer(), sa.ForeignKey('users.user_id', ondelete='CASCADE'), nullable=False),
+    sa.Column('friend_id', sa.Integer(), sa.ForeignKey('users.user_id', ondelete='CASCADE'), nullable=False),
     sa.Column('status', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('friendship_id')
     )
