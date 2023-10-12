@@ -6,6 +6,16 @@ from sqlalchemy import or_, and_
 
 post_routes = Blueprint('post', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
 ## Get All Logged In User & Friend's Posts
 @post_routes.route('/')
 @login_required
@@ -23,6 +33,7 @@ def get_posts():
     feed_posts_dict = [post.to_dict() for post in feed_posts]
 
     return jsonify(feed_posts_dict)
+
 
 # Get Comments By Post ID
 @post_routes.route('/<int:id>/comments')
@@ -60,6 +71,7 @@ def like_post(id):
     db.session.commit()
     return like.to_dict()
 
+#Delete A Like By Post ID
 @post_routes.route('/<int:id>/likes', methods=['DELETE'])
 @login_required
 def delete_like(id):
@@ -71,3 +83,16 @@ def delete_like(id):
         return "Successfully deleted"
     else:
         return "Like not found", 404
+
+#Delete A Post by Post ID
+@post_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_post(id):
+    user = current_user.user_id
+    post = Post.query.filter_by(user_id=user, post_id=id).first()
+    if post:
+        db.session.delete(post)
+        db.session.commit()
+        return "Successfully deleted"
+    else:
+        return "Post not found", 404

@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import DOMPurify from 'dompurify';
 import Likes from "./Likes";
 import Comments from "./Comments";
 import './index.css';
+import { getFeed } from "../../store/feed";
 
 function PostComponent({ post_id }) {
   const history = useHistory();
+  const dispatch = useDispatch();
   const [post, setPost] = useState("");
   const [user, setUser] = useState("");
   const [comments, setComments] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isCurrentUserPost, setIsCurrentUserPost] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
   let user_id;
+
+  const sanitizeHTML = (html) => {
+    return { __html: DOMPurify.sanitize(html) };
+  };
 
   async function getPost(post_id) {
     const response = await fetch(`/api/posts/${post_id}`);
@@ -30,6 +40,13 @@ function PostComponent({ post_id }) {
     return comments;
   }
 
+  const handleDelete = async () => {
+    const response = await fetch(`/api/posts/${post_id}`, {
+      method: 'DELETE'
+    })
+    dispatch(getFeed())
+  }
+
   useEffect(() => {
     getPost(post_id);
   }, [post_id]);
@@ -39,6 +56,9 @@ function PostComponent({ post_id }) {
       let user_id = post.user_id;
       getUser(user_id);
       setIsLoaded(true);
+      if(user_id === sessionUser.user_id){
+        setIsCurrentUserPost(true)
+      }
     }
   }, [post, user_id]);
 
@@ -68,10 +88,16 @@ function PostComponent({ post_id }) {
             <a href={`/users/${user.user_id}`}>{user.username}</a>
             </div>
           <div className="post-info">
-            <p className="post">{post.content}</p>
+          <p className="post" dangerouslySetInnerHTML={sanitizeHTML(post.content)} />
           </div>
           <div>
             <Likes post_id={post_id} />
+            {isCurrentUserPost ? (
+              <div>
+                <button onClick={handleDelete}>Delete</button>
+              </div>
+            ) : (null)}
+
             {comments
               ? comments.map((comment) => {
                   return (

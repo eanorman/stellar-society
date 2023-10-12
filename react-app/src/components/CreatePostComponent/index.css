@@ -1,0 +1,11 @@
+
+
+.quill {
+    overflow: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+}
+
+.create-post {
+    overflow: visible;
+}
