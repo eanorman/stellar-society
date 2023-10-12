@@ -24,6 +24,25 @@ export const getFeed = () => async (dispatch) => {
     }
 }
 
+export const createPost = (user_id, content) => async (dispatch) => {
+    const response = await fetch(`/api/users/${user_id}/post`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            content
+        })
+    })
+
+    if(response.ok) {
+        dispatch(getFeed()); // fetch the updated list of posts
+        return null;
+    } else {
+        return ["An error occurred. Please try again."]
+    }
+}
+
 export default function feedReducer(state=initialState, action) {
     switch(action.type){
         case SET_FEED:
