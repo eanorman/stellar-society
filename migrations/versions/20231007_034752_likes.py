@@ -22,8 +22,8 @@ depends_on = None
 def upgrade():
    op.create_table('likes',
     sa.Column('like_id', sa.Integer(), nullable=False),
-    sa.Column('user_id', sa.Integer(), sa.ForeignKey('users.user_id'), nullable=False),
-    sa.Column('post_id', sa.Integer(), sa.ForeignKey('posts.post_id'), nullable=False),
+    sa.Column('user_id', sa.Integer(), sa.ForeignKey('users.user_id', ondelete='CASCADE'), nullable=False),
+    sa.Column('post_id', sa.Integer(), sa.ForeignKey('posts.post_id', ondelete='CASCADE'), nullable=False),
     sa.PrimaryKeyConstraint('like_id')
     )
 
