@@ -7,6 +7,9 @@ Create Date: 2023-10-07 03:22:27.055071
 """
 from alembic import op
 import sqlalchemy as sa
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
@@ -25,6 +28,8 @@ def upgrade():
     sa.Column('created_at', sa.TIMESTAMP),
     sa.PrimaryKeyConstraint('comment_id')
     )
+   if environment == "production":
+       op.execute(f"ALTER TABLE comments SET SCHEMA {SCHEMA};")
 
 
 def downgrade():

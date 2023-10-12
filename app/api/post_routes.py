@@ -60,7 +60,7 @@ def get_post_likes(id):
     return jsonify(likes_dict)
 
 
-# Post A Like By Post ID
+# Like a Post By Post ID
 @post_routes.route('/<int:id>/likes', methods=["POST"])
 @login_required
 def like_post(id):
