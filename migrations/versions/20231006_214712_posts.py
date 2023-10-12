@@ -22,7 +22,7 @@ depends_on = None
 def upgrade():
    op.create_table('posts',
     sa.Column('post_id', sa.Integer(), nullable=False),
-    sa.Column('user_id', sa.Integer(), sa.ForeignKey('users.user_id'), nullable=False),
+    sa.Column('user_id', sa.Integer(), sa.ForeignKey('users.user_id', ondelete='CASCADE'), nullable=False),
     sa.Column('content', sa.Text(), nullable=False),
     sa.Column('created_at', sa.TIMESTAMP),
     sa.PrimaryKeyConstraint('post_id')
