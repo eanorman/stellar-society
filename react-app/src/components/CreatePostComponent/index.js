@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import 'react-quill/dist/quill.snow.css';
+
 import './index.css'
 import { createPost } from '../../store/feed';
 import 'react-quill/dist/quill.bubble.css';
@@ -11,8 +12,10 @@ function CreatePostComponent(){
     const [content, setContent] = useState('');
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-
-
+    let Quill = ReactQuill.Quill;
+    let Font = Quill.import('formats/font');
+    Font.whitelist = ['Arial', 'Times-New-Roman', 'Verdana', 'Courier-New', 'Georgia', 'Impact', 'Charcoal', 'Lucida-Sans-Unicode']; // Add the fonts you want here
+    Quill.register(Font, true);
 
     const handleChange = (value) => {
         setContent(value);
@@ -28,7 +31,7 @@ function CreatePostComponent(){
         toolbar: [
             [{ 'header': [1, 2, false] }],
             ['bold', 'italic', 'underline','strike', 'blockquote'],
-            [{ 'font': ['serif', 'monospace'] }],
+            [{ 'font': Font.whitelist }],
             ['color'],
             [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
             ['link', 'image'],

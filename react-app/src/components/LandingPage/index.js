@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './index.css';
 import OpenModalButton from '../OpenModalButton';
 import SignupFormModal from '../SignupFormModal';
@@ -6,10 +8,14 @@ import SignupFormModal from '../SignupFormModal';
 
 function LandingPage() {
     const [showMenu, setShowMenu] = useState(false);
+    const history = useHistory();
+    const sessionUser = useSelector((state) => state.session.user);
+
 
     const ulRef = useRef();
 
-
+    if (sessionUser) history.push('/feed')
+    
     useEffect(() => {
         if (!showMenu) return;
 

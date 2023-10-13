@@ -1,11 +1,56 @@
-
-
-.quill {
-    overflow: visible;
-    overflow-x: visible;
-    overflow-y: visible;
+.ql-snow .ql-picker-label[data-value="Arial"]::before,
+.ql-snow .ql-picker-item[data-value="Arial"]::before {
+    content: "Arial";
+    font-family: "Arial";
 }
 
-.create-post {
-    overflow: visible;
+.ql-snow .ql-picker-label[data-value="Times-New-Roman"]::before,
+.ql-snow .ql-picker-item[data-value="Times-New-Roman"]::before {
+    content: "Times New Roman";
+    font-family: "Times New Roman";
+}
+
+.ql-snow .ql-picker-label[data-value="Verdana"]::before,
+.ql-snow .ql-picker-item[data-value="Verdana"]::before {
+    content: "Verdana";
+    font-family: "Verdana";
+}
+
+.ql-snow .ql-picker-label[data-value="Courier-New"]::before,
+.ql-snow .ql-picker-item[data-value="Courier-New"]::before {
+    content: "Courier New";
+    font-family: "Courier New";
+}
+
+.ql-snow .ql-picker-label[data-value="Georgia"]::before,
+.ql-snow .ql-picker-item[data-value="Georgia"]::before {
+    content: "Georgia";
+    font-family: "Georgia";
+}
+
+.ql-snow .ql-picker-label[data-value="Impact"]::before,
+.ql-snow .ql-picker-item[data-value="Impact"]::before {
+    content: "Impact";
+    font-family: "Impact";
+}
+
+.ql-snow .ql-picker-label[data-value="Charcoal"]::before,
+.ql-snow .ql-picker-item[data-value="Charcoal"]::before {
+    content: "Charcoal";
+    font-family: "Charcoal";
+}
+
+.ql-snow .ql-picker-label[data-value="Lucida-Sans-Unicode"]::before,
+.ql-snow .ql-picker-item[data-value="Lucida-Sans-Unicode"]::before {
+    content: "Lucida Sans Unicode";
+    font-family: "Lucida Sans Unicode";
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-item {
+    font-size: 0;
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-item::before {
+    content: attr(data-value) !important;
+    font-size: 14px;
 }
