@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import ReactQuill from 'react-quill';
-import { useDispatch, useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from 'react-redux';
 import 'react-quill/dist/quill.snow.css';
-
 import './index.css'
-import { createPost } from '../../store/feed';
-import 'react-quill/dist/quill.bubble.css';
+import { createComment, getFeed } from '../../store/feed';
 
-function CreatePostComponent(){
+function CreateCommentComponent({post_id}) {
     const [content, setContent] = useState('');
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
@@ -22,8 +19,8 @@ function CreatePostComponent(){
     };
 
     const handleSubmit = () => {
-       const user_id = sessionUser.user_id;
-       dispatch(createPost(user_id, content))
+       dispatch(createComment(post_id, content))
+       dispatch(getFeed())
        setContent('')
     }
 
@@ -40,11 +37,11 @@ function CreatePostComponent(){
     };
 
     return (
-        <div className="create-post">
+        <div className="create-comment">
            <ReactQuill className="quill" value={content} onChange={handleChange} modules={modules} theme="snow" />
             <button onClick={handleSubmit}>Submit</button>
         </div>
-    );
+    )
 }
 
-export default CreatePostComponent;
+export default CreateCommentComponent;

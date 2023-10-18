@@ -8,6 +8,7 @@ import Likes from "./Likes";
 import Comments from "./Comments";
 import './index.css';
 import { getFeed } from "../../store/feed";
+import CreateCommentComponent from "../CreateCommentComponent";
 
 function PostComponent({ post_id }) {
   const history = useHistory();
@@ -19,6 +20,7 @@ function PostComponent({ post_id }) {
   const [isCurrentUserPost, setIsCurrentUserPost] = useState(false);
   const [hidden, setHidden] = useState(true);
   const sessionUser = useSelector((state) => state.session.user);
+  const sessionFeed = useSelector((state) => state.feed)
   let user_id;
 
   const sanitizeHTML = (html) => {
@@ -79,7 +81,7 @@ function PostComponent({ post_id }) {
     return () => {
       isMounted = false;
     };
-  }, [post, post_id]);
+  }, [post, post_id, sessionFeed]);
 
   return (
     <div>
@@ -112,6 +114,7 @@ function PostComponent({ post_id }) {
                     </div>
                   );
                 })}
+                <CreateCommentComponent post_id={post.post_id}/>
                 </div>
               </div>
 
