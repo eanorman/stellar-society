@@ -3,6 +3,7 @@ from app.models import Post, db, Friendship, Comment, Like
 from app.forms import PostForm
 from flask_login import current_user, login_required
 from sqlalchemy import or_, and_
+from app.forms import CommentForm
 
 post_routes = Blueprint('post', __name__)
 
@@ -96,3 +97,24 @@ def delete_post(id):
         return "Successfully deleted"
     else:
         return "Post not found", 404
+
+#Post a Comment By Post ID
+@post_routes.route('/<int:id>', methods=["POST"])
+@login_required
+def post_comment(id):
+    user = current_user.user_id
+    post_id = id
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        comment = Comment(
+            user_id=user,
+            post_id=id,
+            content=form.data['content']
+            )
+
+        db.session.add(comment)
+        db.session.commit()
+        return comment.to_dict(), 201
+    else:
+        return jsonify({"error": "Invalid form data", "errors": form.errors}), 400

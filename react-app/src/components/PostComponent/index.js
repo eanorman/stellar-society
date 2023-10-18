@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faComments } from "@fortawesome/free-regular-svg-icons";
 import DOMPurify from 'dompurify';
 import Likes from "./Likes";
 import Comments from "./Comments";
 import './index.css';
 import { getFeed } from "../../store/feed";
+import CreateCommentComponent from "../CreateCommentComponent";
 
 function PostComponent({ post_id }) {
   const history = useHistory();
@@ -15,7 +18,9 @@ function PostComponent({ post_id }) {
   const [comments, setComments] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
   const [isCurrentUserPost, setIsCurrentUserPost] = useState(false);
+  const [hidden, setHidden] = useState(true);
   const sessionUser = useSelector((state) => state.session.user);
+  const sessionFeed = useSelector((state) => state.feed)
   let user_id;
 
   const sanitizeHTML = (html) => {
@@ -47,6 +52,10 @@ function PostComponent({ post_id }) {
     dispatch(getFeed())
   }
 
+  const handleClick = () => {
+    setHidden(!hidden);
+  }
+
   useEffect(() => {
     getPost(post_id);
   }, [post_id]);
@@ -72,7 +81,7 @@ function PostComponent({ post_id }) {
     return () => {
       isMounted = false;
     };
-  }, [post, post_id]);
+  }, [post, post_id, sessionFeed]);
 
   return (
     <div>
@@ -90,23 +99,32 @@ function PostComponent({ post_id }) {
           <div className="post-info">
           <p className="post" dangerouslySetInnerHTML={sanitizeHTML(post.content)} />
           </div>
-          <div>
+          <div className="likes-comments">
             <Likes post_id={post_id} />
-            {isCurrentUserPost ? (
-              <div>
-                <button onClick={handleDelete}>Delete</button>
-              </div>
-            ) : (null)}
-
             {comments
-              ? comments.map((comment) => {
+              ?
+                <div className="comment-section">
+                  <FontAwesomeIcon icon={faComments} onClick={handleClick}/>
+                  <p>{comments.length}</p>
+                  <div className={`comment ${hidden ? "hidden" : ""}`}>
+                {comments.map((comment) => {
                   return (
                     <div key={post_id}>
                       <Comments comment={comment} />
                     </div>
                   );
-                })
+                })}
+                <CreateCommentComponent post_id={post.post_id}/>
+                </div>
+              </div>
+
               : null}
+            {isCurrentUserPost ? (
+              <div className="delete-button">
+                <button onClick={handleDelete}>Delete</button>
+              </div>
+            ) : (null)}
+
           </div>
         </div>
       ) : (
