@@ -17,3 +17,31 @@
     flex-wrap: wrap;
     flex-direction: column;
 }
+
+.likes-comments {
+  display: flex;
+  width: 100%;
+}
+
+.comment-section {
+  display: flex;
+  justify-content: center;
+}
+
+.comment-section p {
+  margin-left: 5px;
+}
+.delete-button {
+  display: flex;
+justify-content: flex-end;
+align-items: flex-end;
+width: 100%;
+}
+
+.delete-button button{
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  width: 7vh;
+}
