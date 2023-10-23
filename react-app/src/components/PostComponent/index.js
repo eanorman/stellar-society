@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faComments } from "@fortawesome/free-regular-svg-icons";
-import DOMPurify from 'dompurify';
 import Likes from "./Likes";
 import Comments from "./Comments";
 import './index.css';
@@ -23,9 +22,6 @@ function PostComponent({ post_id }) {
   const sessionFeed = useSelector((state) => state.feed)
   let user_id;
 
-  const sanitizeHTML = (html) => {
-    return { __html: DOMPurify.sanitize(html) };
-  };
 
   async function getPost(post_id) {
     const response = await fetch(`/api/posts/${post_id}`);
@@ -97,7 +93,7 @@ function PostComponent({ post_id }) {
             <a href={`/users/${user.user_id}`}>{user.username}</a>
             </div>
           <div className="post-info">
-          <p className="post" dangerouslySetInnerHTML={sanitizeHTML(post.content)} />
+          <p className="post" dangerouslySetInnerHTML={{ __html: post.content }}></p>
           </div>
           <div className="likes-comments">
             <Likes post_id={post_id} />
