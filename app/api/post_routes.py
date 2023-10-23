@@ -118,3 +118,19 @@ def post_comment(id):
         return comment.to_dict(), 201
     else:
         return jsonify({"error": "Invalid form data", "errors": form.errors}), 400
+
+
+#Update a Comment By Comment ID
+@post_routes.route('/comments/<int:id>', methods=["PATCH"])
+@login_required
+def update_comment(id):
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        comment = Comment.query.get(id)
+        if comment and comment.user_id == current_user.user_id:
+            comment.content = form.data['content']
+            db.session.commit()
+            return comment.to_dict()
+        else:
+            return jsonify({"error": "Comment not found or unauthorized"}), 404
