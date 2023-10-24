@@ -12,6 +12,7 @@ function NewsFeed() {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const posts = useSelector((state) => state.feed.posts);
+  const feed = useSelector((state) => state.feed);
   const [isLoaded, setIsLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -49,7 +50,7 @@ function NewsFeed() {
       }
     }
     fetchUsers();
-  }, [posts]);
+  }, [posts, feed]);
 
   if (loading) {
     return <h2>Loading...</h2>;
@@ -70,4 +71,3 @@ function NewsFeed() {
 }
 
 export default NewsFeed;
-

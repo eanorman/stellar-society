@@ -8,6 +8,8 @@ import Comments from "./Comments";
 import './index.css';
 import { getFeed } from "../../store/feed";
 import CreateCommentComponent from "../CreateCommentComponent";
+import OpenModalButton from "../OpenModalButton";
+import UpdatePostModal from "../UpdatePostModal";
 
 function PostComponent({ post_id }) {
   const history = useHistory();
@@ -54,7 +56,7 @@ function PostComponent({ post_id }) {
 
   useEffect(() => {
     getPost(post_id);
-  }, [post_id]);
+  }, [post_id, sessionFeed]);
 
   useEffect(() => {
     if (post) {
@@ -118,6 +120,7 @@ function PostComponent({ post_id }) {
             {isCurrentUserPost ? (
               <div className="delete-button">
                 <button onClick={handleDelete}>Delete</button>
+                <OpenModalButton buttonText="Update" modalComponent={<UpdatePostModal post_id={post.post_id}/>}  />
               </div>
             ) : (null)}
 
