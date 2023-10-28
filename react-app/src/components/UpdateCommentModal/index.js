@@ -6,23 +6,10 @@ import { getFeed } from "../../store/feed";
 import "./index.css";
 import { useModal } from "../../context/Modal";
 
-function UpdateCommentModal({ comment_id }) {
-  const [content, setContent] = useState("");
+function UpdateCommentModal({ comment_id, commentContent }) {
+  const [content, setContent] = useState(commentContent);
   const dispatch = useDispatch();
   const { closeModal } = useModal();
-  let Quill = ReactQuill.Quill;
-  let Font = Quill.import("formats/font");
-  Font.whitelist = [
-    "Arial",
-    "Times-New-Roman",
-    "Verdana",
-    "Courier-New",
-    "Georgia",
-    "Impact",
-    "Charcoal",
-    "Lucida-Sans-Unicode",
-  ];
-  Quill.register(Font, true);
   const handleChange = (value) => {
     setContent(value);
   };
@@ -50,30 +37,14 @@ function UpdateCommentModal({ comment_id }) {
     setContent('');
   };
 
-  const modules = {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
-      [{ font: Font.whitelist }],
-      ["color"],
-      [
-        { list: "ordered" },
-        { list: "bullet" },
-        { indent: "-1" },
-        { indent: "+1" },
-      ],
-      ["link", "image"],
-      ["clean"],
-    ],
-  };
+
 
   return (
-    <div>
+    <div className="update-comment-modal">
       <ReactQuill
         className="quill"
         value={content}
         onChange={handleChange}
-        modules={modules}
         theme="snow"
       />
       <button onClick={handleSubmit}>Submit</button>

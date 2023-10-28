@@ -9,6 +9,7 @@ import LandingPage from "./components/LandingPage";
 import AddProfilePicture from "./components/AddProfilePicturePage";
 import MainFeedPage from "./components/MainFeedPage";
 import UserProfile from "./components/UserProfile";
+import UpdateProfilePicture from "./components/UpdateProfilePicturePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/add-picture">
             <AddProfilePicture />
+          </Route>
+          <Route path='/update-profile-photo'>
+            <UpdateProfilePicture />
           </Route>
           <Route path='/feed'>
             <MainFeedPage />

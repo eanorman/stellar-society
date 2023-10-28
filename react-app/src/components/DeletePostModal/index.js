@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch} from "react-redux";
 import { getFeed } from "../../store/feed";
 import { useModal } from "../../context/Modal";
+import './index.css'
 
 
 
@@ -17,10 +18,14 @@ function DeletePostModal({post_id}) {
     }
 
     return(
-        <div>
+        <div className="delete-post-modal">
                 <p>Are you sure you'd like to delete this post?</p>
+                <div className="delete-post-button">
                 <button onClick={handleDelete}>Confirm Delete</button>
+                </div>
+                <div className="cancel-post-button">
                 <button onClick={() => closeModal()}>Cancel</button>
+                </div>
         </div>
     )
 

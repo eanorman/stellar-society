@@ -111,7 +111,7 @@ function PostComponent({ post_id }) {
               <div className="comment-section">
                 <FontAwesomeIcon icon={faComments} onClick={handleClick} />
                 <p>{comments.length}</p>
-                <div className={`comment ${hidden ? "hidden" : ""}`}>
+                <div className={`comment${hidden ? " hidden" : ""}`}>
                   {comments.map((comment) => {
                     return (
                       <div key={`comments ${comment.comment_id}`}>
@@ -123,20 +123,25 @@ function PostComponent({ post_id }) {
                 </div>
               </div>
             ) : null}
+
+</div>
             {isCurrentUserPost ? (
-              <div className="delete-button">
+              <div className="delete-update-post">
+              <div className="update-post">
+                <OpenModalButton
+                  buttonText="Update"
+                  modalComponent={<UpdatePostModal post_id={post.post_id} postContent={post.content}/>}
+                />
+                </div>
+                <div className="delete-post">
                 <OpenModalButton
                   buttonText="Delete"
                   modalComponent={<DeletePostModal post_id={post.post_id} />}
                 />
-
-                <OpenModalButton
-                  buttonText="Update"
-                  modalComponent={<UpdatePostModal post_id={post.post_id} />}
-                />
+              </div>
               </div>
             ) : null}
-          </div>
+
         </div>
       ) : (
         <h2>Loading...</h2>

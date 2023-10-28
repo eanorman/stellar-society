@@ -42,9 +42,13 @@ function Comments({comment}){
             <a href={`/users/${user.user_id}`}>{user.username}</a>
             <p className="post" dangerouslySetInnerHTML={{ __html: comment.content }}></p>
             {isCurrentUserComment ? (
-          <div>
-            <OpenModalButton buttonText="Update" modalComponent={<UpdateCommentModal comment_id={comment.comment_id}/>} />
+          <div className="delete-update-comment">
+            <div className="update-comment">
+            <OpenModalButton buttonText="Update" modalComponent={<UpdateCommentModal comment_id={comment.comment_id} commentContent={comment.content}/>} />
+              </div>
+              <div className="delete-comment">
             <OpenModalButton buttonText="Delete" modalComponent={<DeleteCommentModal comment_id={comment.comment_id}/>} />
+              </div>
           </div>) : (null)}
         </div>
 

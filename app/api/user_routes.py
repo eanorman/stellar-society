@@ -64,6 +64,29 @@ def add_profile_picture(id):
             return jsonify({"error": f"Failed to upload the profile picture to S3: {str(e)}"}), 500
     return jsonify({"error": "Failed to update the profile picture.", "errors": form.errors}), 400
 
+#Update Profile Photo
+@user_routes.route('/<int:id>/update-profile-photo', methods=['PUT'])
+@login_required
+def update_profile_picture(id):
+    user = User.query.get(id)
+    form = ProfilePictureForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        uploaded_file = form.profile_picture.data
+        unique_filename = f"user_{user.user_id}_profile_picture.jpg"
+
+        try:
+            s3.upload_fileobj(
+                uploaded_file, 'stellar-society', unique_filename)
+
+            user.profile_picture = f"https://stellar-society.s3.us-east-2.amazonaws.com/{unique_filename}"
+            db.session.commit()
+            return user.to_dict()
+        except Exception as e:
+            return jsonify({"error": f"Failed to upload the profile picture to S3: {str(e)}"}), 500
+    return jsonify({"error": "Failed to update the profile picture.", "errors": form.errors}), 400
+
 
 ## Create A New Post
 @user_routes.route('/<int:id>/post', methods=['POST'])

@@ -57,7 +57,7 @@ function AddProfilePicture() {
   };
 
   const handleUpload = async () => {
-    const data = await dispatch(addProfilePicture(sessionUser.id, image));
+    const data = await dispatch(addProfilePicture(sessionUser.user_id, image));
     if (data) {
       history.push("/");
     }

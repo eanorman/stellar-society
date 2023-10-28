@@ -24,21 +24,11 @@ function CreateCommentComponent({post_id}) {
        setContent('')
     }
 
-    const modules = {
-        toolbar: [
-            [{ 'header': [1, 2, false] }],
-            ['bold', 'italic', 'underline','strike', 'blockquote'],
-            [{ 'font': Font.whitelist }],
-            ['color'],
-            [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-            ['link', 'image'],
-            ['clean']
-        ],
-    };
+
 
     return (
         <div className="create-comment">
-           <ReactQuill className="quill" value={content} onChange={handleChange} modules={modules} theme="snow" />
+           <ReactQuill className="quill" value={content} onChange={handleChange} theme="snow" />
             <button onClick={handleSubmit}>Submit</button>
         </div>
     )

@@ -54,12 +54,13 @@ function PendingFriendRequest({ friendship, removeFriendship }) {
     <div>
       {isLoaded && friendInfo ? (
         <div className="friend-info">
+          <div className="friend-text">
           <img src={friendInfo.profile_picture} alt={friendInfo.username} />
           <p>{friendInfo.username}</p>
-          <p>{`${friendInfo.first_name} ${friendInfo.last_name}`}</p>
+          </div>
           <div className="friendship-buttons">
-            <button onClick={acceptFriend}>Accept</button>
-            <button onClick={rejectFriend}>Reject</button>
+            <button className="accept-friend" onClick={acceptFriend}>Accept</button>
+            <button className="reject-friend" onClick={rejectFriend}>Reject</button>
           </div>
         </div>
       ) : (

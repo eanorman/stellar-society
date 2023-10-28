@@ -1,0 +1,30 @@
+.delete-comment-button button {
+  background-color: red;
+  color: white;
+  border: none;
+}
+.delete-comment-button button:hover {
+  background-color: white;
+  color: red;
+  border: 3px solid red;
+}
+
+.cancel-comment-button button {
+  background-color: green;
+  color: white;
+  border: none;
+}
+
+.cancel-comment-button button:hover {
+  background-color: white;
+  color: green;
+  border: 3px solid green;
+}
+
+.delete-comment-modal {
+  margin: 10%;
+}
+
+.delete-comment-modal p {
+    margin-bottom: 7%;
+}

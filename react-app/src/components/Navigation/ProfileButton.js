@@ -27,9 +27,7 @@ function ProfileButton({ user }) {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
-      if (!ulRef.current.contains(e.target)) {
         setShowMenu(false);
-      }
     };
 
     document.addEventListener("click", closeMenu);
@@ -44,10 +42,6 @@ function ProfileButton({ user }) {
     history.push('/')
   };
 
-  const handleFriendRequest = (e) => {
-    e.preventDefault();
-
-  }
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
@@ -67,6 +61,7 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<FriendRequestModal />}
             /></li>
+            <li><button onClick={() => history.push('/update-profile-photo')}>Update Profile Picture</button></li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
