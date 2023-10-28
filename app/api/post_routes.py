@@ -3,7 +3,11 @@ from app.models import Post, db, Friendship, Comment, Like
 from app.forms import PostForm
 from flask_login import current_user, login_required
 from sqlalchemy import or_, and_
+from app.models import Photo
 from app.forms import CommentForm
+import boto3
+import os
+from botocore.exceptions import NoCredentialsError
 
 post_routes = Blueprint('post', __name__)
 
@@ -92,6 +96,23 @@ def delete_post(id):
     user = current_user.user_id
     post = Post.query.filter_by(user_id=user, post_id=id).first()
     if post:
+        photos = Photo.query.filter_by(post_id=id).all()
+        s3 = boto3.client('s3', aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"), aws_secret_access_key=os.environ.get("AWS_SECRET_KEY"))
+
+        for photo in photos:
+            try:
+                key = photo.image.split('/')[-1]
+                s3.delete_object(Bucket='stellar-society', Key=key)
+                db.session.delete(photo)
+            except NoCredentialsError:
+                print("No AWS credentials found")
+        comments = Comment.query.filter_by(post_id=id).all()
+        for comment in comments:
+            db.session.delete(comment)
+        likes = Like.query.filter_by(post_id=id).all()
+        for like in likes:
+           db.session.delete(like)
+
         db.session.delete(post)
         db.session.commit()
         return "Successfully deleted"

@@ -11,6 +11,8 @@ from .seeds import seed_commands
 from .config import Config
 from .api.post_routes import post_routes
 from .api.comment_routes import comment_routes
+from .api.photo_routes import photo_routes
+from .api.friendship_routes import friendship_routes
 
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 
@@ -32,6 +34,8 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(post_routes, url_prefix='/api/posts')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
+app.register_blueprint(photo_routes, url_prefix='/api/photos')
+app.register_blueprint(friendship_routes, url_prefix='/api/friendships')
 db.init_app(app)
 Migrate(app, db)
 

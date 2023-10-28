@@ -64,7 +64,7 @@ function NewsFeed() {
     <div>
       <CreatePostComponent />
       {Array.isArray(posts) && posts.map((post) => {
-        return <PostComponent post_id={post.post_id} key={post.post_id} />
+        return <PostComponent post_id={post.post_id} key={`post ${post.post_id}`} />
       })}
     </div>
   );
