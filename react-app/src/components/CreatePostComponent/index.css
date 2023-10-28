@@ -1,56 +1,76 @@
 .ql-snow .ql-picker-label[data-value="Arial"]::before,
 .ql-snow .ql-picker-item[data-value="Arial"]::before {
-    content: "Arial";
-    font-family: "Arial";
+  content: "Arial";
+  font-family: "Arial";
 }
 
 .ql-snow .ql-picker-label[data-value="Times-New-Roman"]::before,
 .ql-snow .ql-picker-item[data-value="Times-New-Roman"]::before {
-    content: "Times New Roman";
-    font-family: "Times New Roman";
+  content: "Times New Roman";
+  font-family: "Times New Roman";
 }
 
 .ql-snow .ql-picker-label[data-value="Verdana"]::before,
 .ql-snow .ql-picker-item[data-value="Verdana"]::before {
-    content: "Verdana";
-    font-family: "Verdana";
+  content: "Verdana";
+  font-family: "Verdana";
 }
 
 .ql-snow .ql-picker-label[data-value="Courier-New"]::before,
 .ql-snow .ql-picker-item[data-value="Courier-New"]::before {
-    content: "Courier New";
-    font-family: "Courier New";
+  content: "Courier New";
+  font-family: "Courier New";
 }
 
 .ql-snow .ql-picker-label[data-value="Georgia"]::before,
 .ql-snow .ql-picker-item[data-value="Georgia"]::before {
-    content: "Georgia";
-    font-family: "Georgia";
+  content: "Georgia";
+  font-family: "Georgia";
 }
 
 .ql-snow .ql-picker-label[data-value="Impact"]::before,
 .ql-snow .ql-picker-item[data-value="Impact"]::before {
-    content: "Impact";
-    font-family: "Impact";
+  content: "Impact";
+  font-family: "Impact";
 }
 
 .ql-snow .ql-picker-label[data-value="Charcoal"]::before,
 .ql-snow .ql-picker-item[data-value="Charcoal"]::before {
-    content: "Charcoal";
-    font-family: "Charcoal";
+  content: "Charcoal";
+  font-family: "Charcoal";
 }
 
 .ql-snow .ql-picker-label[data-value="Lucida-Sans-Unicode"]::before,
 .ql-snow .ql-picker-item[data-value="Lucida-Sans-Unicode"]::before {
-    content: "Lucida Sans Unicode";
-    font-family: "Lucida Sans Unicode";
+  content: "Lucida Sans Unicode";
+  font-family: "Lucida Sans Unicode";
 }
 
 .ql-snow .ql-picker.ql-font .ql-picker-item {
-    font-size: 0;
+  font-size: 0;
 }
 
 .ql-snow .ql-picker.ql-font .ql-picker-item::before {
-    content: attr(data-value) !important;
-    font-size: 14px;
+  content: attr(data-value) !important;
+  font-size: 14px;
+}
+
+.create-post {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.quill{
+    width: 100%;
+}
+.create-post img {
+  width: 70%;
+}
+.user-picture-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -32,11 +32,11 @@ function FriendButton({friend_id}){
             throw new Error(`HTTP error! status: ${response.status}`);
         } else {
             const data = await response.json();
-            console.log(data);
+            setIsPending(true)
         }
     };
     const handleRemoveFriend = () => {
-        fetch(`/api/friendships/delete_friendship/${friend_id}`, {
+        fetch(`/api/friendships/delete_friendship/${friendshipInfo.friendship_id}`, {
             method: 'DELETE',
         })
         .then(() => {
