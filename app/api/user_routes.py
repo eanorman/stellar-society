@@ -32,6 +32,15 @@ def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
+#Get Posts By User ID
+@user_routes.route('<int:id>/posts')
+@login_required
+def user_posts(id):
+    user_posts = Post.query.filter_by(user_id=id).order_by(Post.created_at.desc()).all()
+    posts_to_dict = [post.to_dict() for post in user_posts]
+
+    return jsonify(posts_to_dict)
+
 ## Add A Profile Photo
 @user_routes.route('/<int:id>/add-profile-photo', methods=['POST'])
 @login_required

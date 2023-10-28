@@ -21,9 +21,7 @@ function LikeModal({ likes }) {
         }
     }, [likes])
 
-    useEffect(() => {
-        console.log(users)
-    }, [users])
+
 
     return (
         <div className="like-modal">

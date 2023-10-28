@@ -36,12 +36,14 @@ export const createPost = (user_id, content) => async (dispatch) => {
     })
 
     if(response.ok) {
-        dispatch(getFeed()); // fetch the updated list of posts
-        return null;
+        dispatch(getFeed());
+        const post = await response.json();
+        return post;
     } else {
         return ["An error occurred. Please try again."]
     }
 }
+
 
 export const createComment = (post_id, content) => async (dispatch) => {
     const response = await fetch(`/api/posts/${post_id}`, {
@@ -55,7 +57,7 @@ export const createComment = (post_id, content) => async (dispatch) => {
     })
 
     if(response.ok) {
-        dispatch(getFeed()); // fetch the updated list of posts
+        dispatch(getFeed()); 
         return null;
     } else {
         return ["An error occurred. Please try again."]

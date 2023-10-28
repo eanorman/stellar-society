@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import AddProfilePicture from "./components/AddProfilePicturePage";
 import MainFeedPage from "./components/MainFeedPage";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path='/feed'>
             <MainFeedPage />
+          </Route>
+          <Route path='/users/:userId'>
+            <UserProfile />
           </Route>
           <Route path="/">
             <LandingPage />
