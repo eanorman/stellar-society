@@ -1,0 +1,26 @@
+.update-comment-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 75vh;
+}
+
+.update-comment-modal button {
+    background-image: url("../../images/galaxy-background.jpg");
+    object-fit: fill;
+    color: white;
+    width: 50%;
+    border: 2px solid white;
+    border-radius: 5px;
+    height: 70px;
+    font-weight: bolder;
+    margin: 2%;
+}
+
+.update-comment-modal button:hover {
+    background: none;
+    background-color: white;
+    color: #010c80;
+    border: 3px solid #010c80;
+}

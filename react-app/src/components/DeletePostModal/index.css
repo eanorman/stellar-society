@@ -1,0 +1,30 @@
+.delete-post-button button {
+    background-color: red;
+    color: white;
+    border: none;
+  }
+  .delete-post-button button:hover {
+    background-color: white;
+    color: red;
+    border: 3px solid red;
+  }
+
+  .cancel-post-button button {
+    background-color: green;
+    color: white;
+    border: none;
+  }
+
+  .cancel-post-button button:hover {
+    background-color: white;
+    color: green;
+    border: 3px solid green;
+  }
+
+  .delete-post-modal {
+    margin: 10%;
+  }
+
+  .delete-post-modal p {
+      margin-bottom: 7%;
+  }

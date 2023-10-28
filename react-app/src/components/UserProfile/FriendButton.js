@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
+import { useSelector } from 'react-redux';
+import './FriendButton.css'
 
 function FriendButton({friend_id}){
     const [isFriend, setIsFriend] = useState(false);
     const [isPending, setIsPending] = useState(false);
     const [friendshipInfo, setFriendshipInfo] = useState({})
-
+    const sessionUser = useSelector((state) => state.session.user);
 
 
     useEffect(() => {
@@ -16,6 +18,8 @@ function FriendButton({friend_id}){
             if(data.status === 'PENDING') setIsPending(true)
         }
         fetchFriendshipStatus();
+        console.log(sessionUser.user_id)
+        console.log(friend_id)
     }, [friend_id])
 
     const handleAddFriend = async () => {
@@ -44,15 +48,25 @@ function FriendButton({friend_id}){
         });
     }
 
-    return(
+    return (
         <div>
-            {isFriend
-                ? <button onClick={handleRemoveFriend}>Remove Friend</button>
-                : isPending
-                    ? <button disabled>Friend Request Pending</button>
-                    : <button onClick={handleAddFriend}>Add Friend</button>}
+          {parseInt(sessionUser.user_id) !== parseInt(friend_id) ? (
+            isFriend ? (
+              <button className='remove-friend' onClick={handleRemoveFriend}>
+                Remove Friend
+              </button>
+            ) : isPending ? (
+              <button className='pending-friend' disabled>
+                Friend Request Pending
+              </button>
+            ) : (
+              <button className='add-friend' onClick={handleAddFriend}>
+                Add Friend
+              </button>
+            )
+          ) : null}
         </div>
-    )
+      );
 }
 
 export default FriendButton;

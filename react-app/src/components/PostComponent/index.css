@@ -15,9 +15,12 @@
     flex-wrap: wrap;
     flex-direction: column;
 }
+.user-info img {
+  width: 5vw;
+}
 
 .post-info img {
-  width: 40%;
+  width: 50%;
   margin-bottom: 2%;
 }
 
@@ -32,8 +35,10 @@
 
 .likes-comments {
   display: flex;
+  justify-content: flex-start;
+}
+.comment-content {
   width: 100%;
-  height: 100%;
 }
 
 .comment-section {
@@ -44,17 +49,40 @@
 .comment-section p {
   margin-left: 5px;
 }
-.delete-button {
+
+.delete-update-post {
   display: flex;
-justify-content: flex-end;
-align-items: flex-end;
-width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
 }
 
-.delete-button button{
+.delete-post button {
   background-color: red;
   color: white;
-  border: none;
-  border-radius: 15px;
-  width: 7vh;
+  font-weight: bolder;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 75px;
+}
+
+.delete-post button:hover {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+}
+
+.update-post button {
+  background-color: #010c80;
+  color: white;
+  font-weight: bolder;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 75px;
+}
+
+.update-post button:hover {
+  background-color: white;
+  color: #010c80;
+  border: 2px solid #010c80;
 }

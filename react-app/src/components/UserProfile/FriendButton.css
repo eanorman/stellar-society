@@ -1,0 +1,41 @@
+.remove-friend {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    width: 50%;
+    margin-top: 5%;
+    margin-right: auto;
+}
+
+.remove-friend:hover {
+    background-color: white;
+    color: red;
+    border: 3px solid red;
+}
+
+.add-friend {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    width: 50%;
+    margin-top: 5%;
+    margin-right: auto;
+}
+
+.add-friend:hover {
+    background-color: white;
+    color: green;
+    border: 3px solid green;
+}
+
+.pending-friend {
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    width: 50%;
+    margin-top: 5%;
+    margin-right: auto;
+}

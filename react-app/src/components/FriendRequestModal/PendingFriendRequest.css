@@ -1,16 +1,21 @@
 .friend-info img{
-    width: 40%;
+    width: 20%;
+    margin-left: 2%;
 }
 .friend-info {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: flex-end;
-    width: 50vh;
 }
 
-.friend-info p {
-    margin: 3%;
+.friend-text{
+    display: flex;
+    justify-content: flex-start;
+}
+.friend-text p {
+    margin: 1%;
+    font-weight: bolder;
 }
 
 .friendship-buttons {
@@ -18,4 +23,34 @@
     align-content: center;
     flex-direction: row;
     justify-content: center;
+}
+
+.accept-friend {
+    background-color: green;
+    color: white;
+    border: 2px solid white;
+    font-weight: bolder;
+    border-radius: 5px;
+
+}
+
+.accept-friend:hover {
+    background-color: white;
+    color: green;
+    border: 2px solid green;
+}
+
+.reject-friend {
+    background-color: red;
+    color: white;
+    border: 2px solid white;
+    font-weight: bolder;
+    border-radius: 5px;
+
+}
+
+.reject-friend:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
 }

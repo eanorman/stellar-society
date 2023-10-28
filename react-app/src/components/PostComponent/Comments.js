@@ -4,6 +4,7 @@ import './comments.css'
 import OpenModalButton from "../OpenModalButton";
 import UpdateCommentModal from "../UpdateCommentModal";
 import { getFeed } from "../../store/feed";
+import DeleteCommentModal from "../DeleteCommentModal";
 
 
 function Comments({comment}){
@@ -31,18 +32,7 @@ function Comments({comment}){
         if(user_id === sessionUser.user_id) setIsCurrentUserComment(true)
       }, [user])
 
-      const handleDelete = async () => {
-          const response = await fetch(`/api/comments/${comment.comment_id}`, {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            }
-          })
 
-          if (response.ok) {
-            dispatch(getFeed());
-          }
-      }
 
     return (
         <div className="comment-container">
@@ -52,9 +42,13 @@ function Comments({comment}){
             <a href={`/users/${user.user_id}`}>{user.username}</a>
             <p className="post" dangerouslySetInnerHTML={{ __html: comment.content }}></p>
             {isCurrentUserComment ? (
-          <div>
-            <OpenModalButton buttonText="Update" modalComponent={<UpdateCommentModal comment_id={comment.comment_id}/>} />
-            <button onClick={handleDelete}>Delete</button>
+          <div className="delete-update-comment">
+            <div className="update-comment">
+            <OpenModalButton buttonText="Update" modalComponent={<UpdateCommentModal comment_id={comment.comment_id} commentContent={comment.content}/>} />
+              </div>
+              <div className="delete-comment">
+            <OpenModalButton buttonText="Delete" modalComponent={<DeleteCommentModal comment_id={comment.comment_id}/>} />
+              </div>
           </div>) : (null)}
         </div>
 

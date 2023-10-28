@@ -10,6 +10,7 @@ import { getFeed } from "../../store/feed";
 import CreateCommentComponent from "../CreateCommentComponent";
 import OpenModalButton from "../OpenModalButton";
 import UpdatePostModal from "../UpdatePostModal";
+import DeletePostModal from "../DeletePostModal";
 
 function PostComponent({ post_id }) {
   const history = useHistory();
@@ -50,12 +51,6 @@ function PostComponent({ post_id }) {
     return comments;
   }
 
-  const handleDelete = async () => {
-    const response = await fetch(`/api/posts/${post_id}`, {
-      method: "DELETE",
-    });
-    dispatch(getFeed());
-  };
 
   const handleClick = () => {
     setHidden(!hidden);
@@ -103,11 +98,7 @@ function PostComponent({ post_id }) {
           </div>
           <div className="post-info">
             {photos.map((photo, index) => (
-              <img
-                key={index}
-                src={photo}
-                alt={`Post photo ${index + 1}`}
-              />
+              <img key={index} src={photo} alt={`Post photo ${index + 1}`} />
             ))}
             <p
               className="post"
@@ -120,7 +111,7 @@ function PostComponent({ post_id }) {
               <div className="comment-section">
                 <FontAwesomeIcon icon={faComments} onClick={handleClick} />
                 <p>{comments.length}</p>
-                <div className={`comment ${hidden ? "hidden" : ""}`}>
+                <div className={`comment${hidden ? " hidden" : ""}`}>
                   {comments.map((comment) => {
                     return (
                       <div key={`comments ${comment.comment_id}`}>
@@ -132,16 +123,25 @@ function PostComponent({ post_id }) {
                 </div>
               </div>
             ) : null}
+
+</div>
             {isCurrentUserPost ? (
-              <div className="delete-button">
-                <button onClick={handleDelete}>Delete</button>
+              <div className="delete-update-post">
+              <div className="update-post">
                 <OpenModalButton
                   buttonText="Update"
-                  modalComponent={<UpdatePostModal post_id={post.post_id} />}
+                  modalComponent={<UpdatePostModal post_id={post.post_id} postContent={post.content}/>}
+                />
+                </div>
+                <div className="delete-post">
+                <OpenModalButton
+                  buttonText="Delete"
+                  modalComponent={<DeletePostModal post_id={post.post_id} />}
                 />
               </div>
+              </div>
             ) : null}
-          </div>
+
         </div>
       ) : (
         <h2>Loading...</h2>
