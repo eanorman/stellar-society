@@ -1,0 +1,6 @@
+.friend-request-modal {
+    height: 50vh;
+    width: 75vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

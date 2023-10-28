@@ -1,0 +1,21 @@
+.friend-info img{
+    width: 40%;
+}
+.friend-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    width: 50vh;
+}
+
+.friend-info p {
+    margin: 3%;
+}
+
+.friendship-buttons {
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    justify-content: center;
+}

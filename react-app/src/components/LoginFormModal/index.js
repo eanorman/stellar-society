@@ -25,6 +25,17 @@ function LoginFormModal() {
     }
   };
 
+  const handleDemo = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo@aa.io', 'password'));
+    if (data) {
+      setErrors(data);
+    } else {
+        closeModal();
+        history.push('/feed')
+    }
+  }
+
   return (
     <div className="login-modal">
       	<div className="galaxy">
@@ -63,6 +74,7 @@ function LoginFormModal() {
         </div>
         <div className="login-child">
         <button type="submit">Log In</button>
+        <button onClick={handleDemo}>Demo User</button>
         </div>
       </form>
     </div>

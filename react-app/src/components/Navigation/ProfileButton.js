@@ -8,6 +8,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { removeFeed } from "../../store/feed";
 import { useHistory } from "react-router-dom";
+import FriendRequestModal from "../FriendRequestModal";
 
 
 
@@ -43,6 +44,11 @@ function ProfileButton({ user }) {
     history.push('/')
   };
 
+  const handleFriendRequest = (e) => {
+    e.preventDefault();
+
+  }
+
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
@@ -56,6 +62,11 @@ function ProfileButton({ user }) {
           <>
             <li>{user.username}</li>
             <li>{user.email}</li>
+            <li><OpenModalButton
+              buttonText="Friend Requests"
+              onItemClick={closeMenu}
+              modalComponent={<FriendRequestModal />}
+            /></li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
