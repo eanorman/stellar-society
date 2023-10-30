@@ -18,8 +18,6 @@ function FriendButton({friend_id}){
             if(data.status === 'PENDING') setIsPending(true)
         }
         fetchFriendshipStatus();
-        console.log(sessionUser.user_id)
-        console.log(friend_id)
     }, [friend_id])
 
     const handleAddFriend = async () => {
