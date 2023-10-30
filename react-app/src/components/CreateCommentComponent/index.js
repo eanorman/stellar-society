@@ -29,7 +29,7 @@ function CreateCommentComponent({post_id}) {
     return (
         <div className="create-comment">
            <ReactQuill className="quill" value={content} onChange={handleChange} theme="snow" />
-            <button onClick={handleSubmit}>Submit</button>
+            <button disabled={!content} onClick={handleSubmit}>Submit</button>
         </div>
     )
 }

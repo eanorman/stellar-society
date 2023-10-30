@@ -109,7 +109,7 @@ function CreatePostComponent() {
         theme="snow"
       />
       <input type="file" ref={inputRef} onChange={handleImageChange} />
-      <button onClick={handleSubmit}>Submit</button>
+      <button disabled={!content} onClick={handleSubmit}>Submit</button>
     </div>
   );
 }

@@ -3,17 +3,23 @@ import { useParams } from "react-router-dom";
 import "./index.css";
 import PostComponent from "../PostComponent";
 import FriendButton from "./FriendButton";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function UserProfile() {
   const { userId } = useParams();
   const [userInfo, setUserInfo] = useState({});
   const [userPosts, setUserPosts] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
+  const history = useHistory()
 
   async function getUserInfo() {
     const response = await fetch(`/api/users/${userId}`);
-    const data = await response.json();
-    setUserInfo(data);
+    if(response.ok){
+      const data = await response.json();
+      setUserInfo(data);
+
+    } else history.push('/feed')
+
   }
 
   async function getUserPosts() {
