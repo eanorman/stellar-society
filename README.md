@@ -1,6 +1,9 @@
 # Stellar Society :sparkles:
 __Stellar Society__ is a social media website made for gamers, nerds and anyone in between. __Stellar Society__ is a place to find new friends or reconnect with old friends. Dive into a universe where your passions are _celebrated!_
 
+## Technologies Used
+![HTML](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+
 ## Table Of Contents 📔
 - 🌑 [Introduction](#introduction)
 - 🌒 [Features](#features-)
@@ -81,3 +84,12 @@ _View Likes_
 
 ## Database Schema
 ![database_schema](https://github.com/eanorman/stellar-society/blob/main/docs/StellarSociety.png?raw=true)
+
+## Installing Locally
+1. Clone this repository:
+`https://github.com/eanorman/stellar-society.git`
+2. Install Python dependencies with the command: `pipenv install -r requirements.txt`
+3. Create a .env file in the root directory using the .env.example provided
+4. Create the database using the commands: `pipenv run flask db upgrade` `pipenv run flask seed all`
+5. Change directory to react-app and run `npm install` and `npm start`
+6. Enjoy! :star:
