@@ -6,8 +6,12 @@
   align-items: center;
   text-align: left;
   width: auto;
-  max-height: 35vh;
+  max-height: auto;
   padding-left: 35px;
+}
+
+.errors {
+  color: red;
 }
 
 .login-child {
@@ -64,7 +68,7 @@ button {
   border-radius: 5px;
   height: 70px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 1rem;
   font-weight: bolder;
 }
 
