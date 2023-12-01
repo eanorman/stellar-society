@@ -9,6 +9,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { removeFeed } from "../../store/feed";
 import { useHistory } from "react-router-dom";
 import FriendRequestModal from "../FriendRequestModal";
+import DeleteAccoutModal from "../DeleteAccountModal";
 
 
 
@@ -61,7 +62,13 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<FriendRequestModal />}
             /></li>
+
             <li><button onClick={() => history.push('/update-profile-photo')}>Update Profile Picture</button></li>
+            <li><OpenModalButton
+                buttonText="Delete Account"
+                onItemClick={closeMenu}
+                modalComponent={<DeleteAccoutModal />}
+            /></li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>

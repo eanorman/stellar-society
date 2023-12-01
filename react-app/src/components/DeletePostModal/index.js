@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch} from "react-redux";
 import { getFeed } from "../../store/feed";
 import { useModal } from "../../context/Modal";
+
 import './index.css'
 
 
@@ -15,6 +16,7 @@ function DeletePostModal({post_id}) {
         });
         dispatch(getFeed())
         closeModal();
+
     }
 
     return(

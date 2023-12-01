@@ -112,3 +112,18 @@ def add_post(id):
             return jsonify({"error": str(e)}), 500
     else:
         return jsonify({"error": "Invalid form data", "errors": form.errors}), 400
+
+## Delete User Account
+@user_routes.route('/delete/<int:id>', methods=['DELETE'])
+@login_required
+def delete_user(id):
+    if id != current_user.user_id:
+        return jsonify({"error": "Unauthorized"}), 403
+
+    user = User.query.get(current_user.user_id)
+    if user:
+        db.session.delete(user)
+        db.session.commit()
+        return "Successfully deleted"
+    else:
+        return "User not found", 404
