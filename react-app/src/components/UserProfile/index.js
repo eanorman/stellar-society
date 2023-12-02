@@ -33,6 +33,11 @@ function UserProfile() {
     getUserPosts().then(() => setIsLoaded(true));
   }, []);
 
+  useEffect(() => {
+    getUserInfo();
+    getUserPosts().then(() => setIsLoaded(true));
+  }, [userId]);
+
 
   return (
     <div className="profile-page-container">

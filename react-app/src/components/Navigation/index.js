@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import logo from '../../images/logo-color.png'
+import SearchBar from '../SearchBar';
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
@@ -13,6 +14,11 @@ function Navigation({ isLoaded }){
 			<li className='logo'>
 				<NavLink exact to="/"><img src={logo} alt='Stellar Society Logo' /></NavLink>
 			</li>
+			{ isLoaded && sessionUser && (
+				<SearchBar />
+			)
+
+			}
 			{isLoaded && (
 				<li className='profile'>
 					<ProfileButton user={sessionUser} />

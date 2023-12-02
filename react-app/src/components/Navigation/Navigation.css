@@ -34,6 +34,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #010C80;
+  position: relative;
 }
 
 .profile {

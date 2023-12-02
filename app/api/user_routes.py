@@ -127,3 +127,36 @@ def delete_user(id):
         return "Successfully deleted"
     else:
         return "User not found", 404
+
+## Search For A User
+@user_routes.route('/search', methods=["POST"])
+@login_required
+def user_search():
+    data = request.json
+    query = data.get('query')
+    if not query:
+        return jsonify({"Error": ['Query was not sent in JSON']}), 400
+    user_by_first_name = User.query.filter(User.first_name.ilike(f"%{query}%")).all()
+    user_by_last_name = User.query.filter(User.last_name.ilike(f"%{query}%")).all()
+    user_by_username = User.query.filter(User.username.ilike(f"%{query}%")).all()
+
+    if not user_by_first_name and not user_by_last_name and not user_by_username:
+        return jsonify({"Error": ['No users found']})
+
+    first_name_dicts = []
+    last_name_dicts = []
+    username_dicts = []
+
+    if len(user_by_first_name):
+        first_name_dicts = [s.to_dict() for s in user_by_first_name]
+    if len(user_by_last_name):
+        last_name_dicts = [s.to_dict() for s in user_by_last_name]
+    if len(user_by_username):
+        username_dicts = [s.to_dict() for s in user_by_username]
+
+    combined_dicts = first_name_dicts + last_name_dicts + username_dicts
+    if not combined_dicts:
+        return jsonify({"Error": ["No users found"]})
+
+    unique_dicts = list({d['user_id']: d for d in combined_dicts}.values())
+    return jsonify({"results": unique_dicts})
