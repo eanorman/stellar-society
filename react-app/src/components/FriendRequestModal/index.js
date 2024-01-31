@@ -22,9 +22,6 @@ function FriendRequestModal() {
         setIsLoaded(true)
     }, [])
 
-    useEffect(() => {
-        console.log(pendingFriends)
-    }, [pendingFriends])
 
     const removeFriendship = (friendshipId) => {
         setPendingFriends(pendingFriends.filter(friendship => friendship.friendship_id !== friendshipId));
