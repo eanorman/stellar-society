@@ -10,6 +10,7 @@ import AddProfilePicture from "./components/AddProfilePicturePage";
 import MainFeedPage from "./components/MainFeedPage";
 import UserProfile from "./components/UserProfile";
 import UpdateProfilePicture from "./components/UpdateProfilePicturePage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }
