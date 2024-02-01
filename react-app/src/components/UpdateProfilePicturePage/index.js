@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { addProfilePicture } from "../../store/session";
+import { updateProfilePicture } from "../../store/session";
 import "./index.css";
 import { getFeed } from "../../store/feed";
 
@@ -53,11 +53,16 @@ function UpdateProfilePicture() {
   };
 
   const handleUpload = async () => {
-    const data = await dispatch(addProfilePicture(sessionUser.user_id, image));
-    if (data) {
+    if (image) {
+      const data = await dispatch(updateProfilePicture(sessionUser.user_id, image));
+      if (data) {
         dispatch(getFeed())
-      history.push("/");
+        history.push("/");
+      }
+    } else {
+      history.push('/')
     }
+
   };
 
   return (

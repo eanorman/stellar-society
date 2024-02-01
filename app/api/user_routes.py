@@ -6,7 +6,7 @@ from app.forms import PostForm
 from flask_login import current_user
 import boto3
 import os
-
+import uuid
 
 user_routes = Blueprint('users', __name__)
 s3 = boto3.client('s3', aws_access_key_id=os.environ.get(

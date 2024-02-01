@@ -119,6 +119,24 @@ export const addProfilePicture = (id, picture) => async (dispatch) => {
 	return responseData
 }
 
+export const updateProfilePicture = (id, picture)  => async (dispatch) => {
+	const formData = new FormData();
+	formData.append('profile_picture', picture);
+	const response = await fetch(`/api/users/${id}/update-profile-photo`, {
+		method: 'PUT',
+		body: formData,
+	});
+	
+	if (!response.ok) {
+		const errorData = await response.json();
+		throw new Error(errorData.error);
+	}
+
+	const responseData = await response.json();
+	dispatch(setUser(responseData));
+	return responseData;
+}
+
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_USER:
