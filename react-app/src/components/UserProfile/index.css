@@ -28,3 +28,7 @@
     min-height: 100vh;
     display: flex;
 }
+
+.user-bio p {
+    padding-top: 1rem;
+}
