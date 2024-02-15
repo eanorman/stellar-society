@@ -8,6 +8,11 @@
 
 }
 
+.signup-errors{
+  color: red;
+  font-weight: bold;
+}
+
 .sign-up-modal {
   height: 95vh;
   align-items: center;

@@ -21,23 +21,44 @@ function SignupFormModal() {
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 	const { closeModal } = useModal();
+	const regex = /[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password, firstName, lastName, city, state, country, bio));
-			if (data) {
-				setErrors(data);
-			} else {
-				closeModal();
-				history.push('/add-picture')
-			}
-		} else {
+		if (password !== confirmPassword) {
 			setErrors([
 				"Confirm Password field must be the same as the Password field",
 			]);
+			return;
 		}
-
+	
+		if (!email.includes('@')) {
+			setErrors([
+				"Email must contain @ symbol"
+			])
+			return;
+		}
+	
+		if (regex.test(firstName)) {
+			setErrors([
+				"First name must not include numbers or symbols"
+			])
+			return;
+		}
+		if (regex.test(lastName)) {
+			setErrors([
+				"Last name must not include numbers or symbols"
+			])
+			return;
+		}
+	
+		const data = await dispatch(signUp(username, email, password, firstName, lastName, city, state, country, bio));
+		if (data) {
+			setErrors(data);
+		} else {
+			closeModal();
+			history.push('/add-picture')
+		}
 	};
 
 	return (
@@ -50,7 +71,7 @@ function SignupFormModal() {
 			<h1>Sign Up</h1>
 			<form onSubmit={handleSubmit} className="sign-up-container">
 				<div className="sign-up-child">
-					<ul>
+					<ul className="signup-errors">
 						{errors.map((error, idx) => (
 							<li key={idx}>{error}</li>
 						))}
@@ -60,7 +81,7 @@ function SignupFormModal() {
 					<label>
 						Email
 						<input
-							type="text"
+							type="email"
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
 							required
@@ -79,7 +100,7 @@ function SignupFormModal() {
 					</label>
 				</div>
 				<div className="sign-up-child">
-				<div className="password-container">
+					<div className="password-container">
 						<label>
 							Password
 							<input
