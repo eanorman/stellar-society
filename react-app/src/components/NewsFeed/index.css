@@ -3,6 +3,11 @@
     align-items: center;
 }
 
+.create-post {
+    background-color: white;
+    border-radius: 5px;
+}
+
 .post-info {
     display: flex;
     flex-direction: row;

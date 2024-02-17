@@ -30,5 +30,8 @@
 }
 
 .user-bio p {
-    padding-top: 1rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    border: 1px solid #010C80;
+    border-radius: 5px;
 }
