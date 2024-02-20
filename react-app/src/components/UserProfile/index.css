@@ -27,6 +27,7 @@
     background-size: cover;
     min-height: 100vh;
     display: flex;
+    
 }
 
 .user-bio p {
