@@ -18,7 +18,14 @@
 }
 
 .post-content {
-    margin: 3%;
+    margin-top: 1rem;
     border: 2px solid #010C80;
     border-radius: 5px;
+}
+
+.news-feed {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

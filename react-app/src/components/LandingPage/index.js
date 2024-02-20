@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import './index.css';
 import OpenModalButton from '../OpenModalButton';
 import SignupFormModal from '../SignupFormModal';
-
+import Footer from "../Footer/Footer";
 
 function LandingPage() {
     const [showMenu, setShowMenu] = useState(false);
@@ -15,7 +15,7 @@ function LandingPage() {
     const ulRef = useRef();
 
     if (sessionUser) history.push('/feed')
-    
+
     useEffect(() => {
         if (!showMenu) return;
 
@@ -39,6 +39,7 @@ function LandingPage() {
                 buttonText="Sign Up"
                 onItemClick={closeMenu}
                 modalComponent={<SignupFormModal />} />
+                <Footer />
         </div>
     )
 }

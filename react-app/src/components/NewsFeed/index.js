@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import "./index.css";
 import PostComponent from "../PostComponent";
 import CreatePostComponent from "../CreatePostComponent";
+import Footer from "../Footer/Footer";
 
 function NewsFeed() {
   const dispatch = useDispatch();
@@ -61,7 +62,7 @@ function NewsFeed() {
   }
 
   return (
-    <div>
+    <div className="news-feed">
       <div className="create-post">
         <CreatePostComponent />
       </div>
@@ -70,6 +71,7 @@ function NewsFeed() {
           return <PostComponent post_id={post.post_id} key={`post ${post.post_id}`} />
         })}
       </div>
+      <Footer />
     </div>
   );
 }
