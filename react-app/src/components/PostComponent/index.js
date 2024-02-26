@@ -87,6 +87,8 @@ function PostComponent({ post_id }) {
     <div>
       {isLoaded ? (
         <div className="post-content">
+          <div className="user-post-info">
+
           <div className="user-info">
             <img
               key={post.post_id}
@@ -104,6 +106,7 @@ function PostComponent({ post_id }) {
               className="post"
               dangerouslySetInnerHTML={{ __html: post.content }}
             ></p>
+          </div>
           </div>
           <div className="likes-comments">
             <Likes post_id={post_id} />
