@@ -9,12 +9,20 @@
   width: 60rem;
 }
 
+.user-post-info {
+  display: grid;
+  grid-template-areas:
+  "user post post post";
+  grid-template-columns: 10rem 40rem;
+}
+
 .user-info {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
     flex-direction: column;
+    grid-area: user;
 }
 .user-info img {
   width: 5vw;
@@ -31,7 +39,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-
+  grid-area: post;
 }
 
 .likes-comments {
